@@ -1,582 +1,1052 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SLIDOO | パズル × ずかん</title>
-  <meta name="description" content="SLIDOOは、スライドパズルで遊びながら、ずかんを集めて学べるカジュアルゲームです。" />
-<script type="text/javascript" id="_-s-js-_" src="//satori.segs.jp/s.js?c=99bccf4a"></script>
-  <style>
-    :root{
-      --bg: #33CC99;
-      --panel: rgba(255,255,255,.92);
-      --panel2: rgba(255,255,255,.85);
-      --text: #0b2b22;
-      --muted: rgba(11,43,34,.72);
-      --line: rgba(11,43,34,.12);
-      --shadow: 0 18px 50px rgba(0,0,0,.18);
-      --radius: 18px;
-      --max: 980px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="SLIDOO（スライドゥ）は、4〜7歳のお子さま向けスライドパズル＆ずかん収集アプリ。遊びながら集中力・観察力・達成感を育みます。" />
+<meta property="og:title" content="SLIDOO | パズル × ずかん｜4〜7歳のお子さまへ" />
+<meta property="og:description" content="遊んで集めて、どんどん楽しくなる。スライドパズル＆ずかんで楽しく学べるカジュアルゲーム。" />
+<meta property="og:image" content="https://prism-apps.github.io/slidoo/Title_Top.png" />
+<title>SLIDOO（スライドゥ）｜4〜7歳のお子さま向けパズル × ずかんアプリ</title>
 
-      /* ★ 全体の文字サイズを上げる基準 */
-      --base: 17px;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-                   Arial, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      font-size: var(--base);
-    }
+<style>
+/* ============================================
+   SLIDOO Landing Page
+   Audience: Parents of 4–7 year-olds
+   Aesthetic: warm cream + rounded shapes + tasteful play
+   ============================================ */
 
-    a{ color: inherit; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+:root {
+  --bg:        #FFF7EC;
+  --bg-soft:   #FFEFD9;
+  --surface:   #FFFFFF;
+  --ink:       #25243A;
+  --ink-soft:  #5C5B73;
+  --muted:     #8A8AA0;
+  --line:      #F1E5D0;
 
-    /* top bar */
-    .top{
-      position: sticky; top:0; z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.55);
-      border-bottom: 1px solid var(--line);
-    }
-    .top .wrap{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 12px 18px;
-    }
+  --primary:   #FF7A59;   /* coral */
+  --primary-d: #E85D3C;
+  --secondary: #2EC4B6;   /* teal */
+  --accent:    #FFC857;   /* mustard */
+  --berry:     #C2528B;   /* magenta accent */
+  --sky:       #6FB6FF;
 
-    /* ★ ヘッダー左：SLIDOOロゴ（サイズUP） */
-    .brand{
-      display:flex;
-      align-items:center;
-    }
-    .brand-logo{
-      height: 100px;   /* ← ここを大きくしました（34px → 100px） */
-      width: auto;
-      display:block;
-    }
-    @media (max-width: 520px){
-      .brand-logo{ height: 44px; } /* スマホは少しだけ小さめ */
-    }
+  --radius-s: 14px;
+  --radius-m: 22px;
+  --radius-l: 32px;
+  --radius-xl: 48px;
 
-    .nav{
-      display:flex; gap: 8px; align-items:center;
-      font-size: 14px;
-      color: var(--muted);
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav a{
-      text-decoration:none;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(11,43,34,.10);
-      background: rgba(255,255,255,.45);
-    }
-    .nav a:hover{ background: rgba(255,255,255,.70); color: var(--text); }
+  --shadow-s: 0 2px 6px rgba(37,36,58,.06);
+  --shadow-m: 0 10px 24px rgba(37,36,58,.08);
+  --shadow-l: 0 24px 48px rgba(37,36,58,.12);
 
-    /* hero */
-    header.hero{ padding: 26px 0 12px; }
-    .hero-card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(11,43,34,.12);
-      background: rgba(255,255,255,.60);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
+  --font-jp: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --font-en: "Fredoka", var(--font-jp);
 
-    /* トップの横長画像 */
-    .hero-media{
-      width:100%;
-      display:block;
-      background: rgba(255,255,255,.20);
-    }
+  --maxw: 1120px;
+}
 
-    /* ヒーロー下段：左テキスト + 右スクショ（スマホ枠） */
-    .hero-body{
-      padding: 20px 20px 24px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items:center;
-    }
-    @media (max-width: 860px){
-      .hero-body{ grid-template-columns: 1fr; }
-    }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-jp);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
 
-    h1{
-      margin: 6px 0 12px;
-      font-size: 40px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-    @media (max-width: 500px){ h1{ font-size: 32px; } }
+/* ---------- Decorative background ---------- */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,200,87,.18), transparent 38%),
+    radial-gradient(circle at 88% 8%,  rgba(46,196,182,.14), transparent 40%),
+    radial-gradient(circle at 80% 92%, rgba(255,122,89,.14), transparent 42%);
+  z-index: -2;
+  pointer-events: none;
+}
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  background-image: radial-gradient(rgba(37,36,58,.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: .35;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    .lead{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.9;
-    }
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(255,247,236,.78);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--ink);
+  font-family: var(--font-en);
+  font-weight: 700; font-size: 22px; letter-spacing: .02em;
+}
+.brand-mark {
+  width: 38px; height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  display: grid; place-items: center;
+  color: #fff; font-weight: 700;
+  box-shadow: var(--shadow-s);
+  position: relative;
+}
+.brand-mark::after {
+  content: "";
+  position: absolute; inset: 6px;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.55) 50%, transparent 50%) 0 0/50% 50%,
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.25) 50%) 0 50%/50% 50%;
+  background-repeat: no-repeat;
+}
+.nav-links {
+  display: flex; gap: 6px; align-items: center;
+}
+.nav-links a {
+  text-decoration: none; color: var(--ink-soft);
+  padding: 8px 14px; border-radius: 999px;
+  font-weight: 500; font-size: 14px;
+  transition: background .2s, color .2s;
+}
+.nav-links a:hover { background: var(--bg-soft); color: var(--ink); }
+.nav-cta {
+  background: var(--ink);
+  color: #fff !important;
+  padding: 10px 18px !important;
+}
+.nav-cta:hover { background: var(--primary) !important; }
+.nav-toggle { display: none; }
 
-    .cta-row{
-      display:flex; flex-wrap:wrap; gap: 10px; align-items:center;
-      margin-top: 10px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap: 10px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(11,43,34,.14);
-      background: rgba(255,255,255,.70);
-      text-decoration:none;
-      color: var(--text);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      font-weight: 900;
-      font-size: 15px;
-      cursor:pointer;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.85); }
-    .btn.primary{
-      border-color: rgba(11,43,34,.22);
-      background: linear-gradient(135deg, rgba(255,183,3,.35), rgba(132,204,22,.28));
-      box-shadow: 0 12px 30px rgba(0,0,0,.12);
-    }
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta-mobile {
+    display: inline-flex !important;
+    background: var(--ink); color: #fff;
+    text-decoration: none; padding: 8px 14px; border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+  }
+}
+.nav-cta-mobile { display: none; }
 
-    /* 右：スマホ枠 */
-    .phone{
-      width: min(330px, 100%);
-      margin-left: auto;
-      margin-right: 6px;
-      border-radius: 34px;
-      border: 10px solid rgba(11,43,34,.22);
-      background: rgba(255,255,255,.55);
-      box-shadow: 0 18px 40px rgba(0,0,0,.14);
-      padding: 10px;
-      position: relative;
-    }
-    @media (max-width: 860px){
-      .phone{ margin: 0 auto; }
-    }
-    .phone::before{
-      content:"";
-      position:absolute;
-      top: 12px; left: 50%;
-      transform: translateX(-50%);
-      width: 70px; height: 16px;
-      border-radius: 999px;
-      background: rgba(11,43,34,.12);
-    }
-    .phone .screen{
-      margin-top: 18px;
-      border-radius: 24px;
-      overflow:hidden;
-      background: rgba(0,0,0,.10);
-      aspect-ratio: 9/19.5;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .phone .screen img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-    }
-    .placeholder{
-      color: rgba(11,43,34,.55);
-      font-size: 13px;
-      text-align:center;
-      padding: 10px;
-      line-height: 1.6;
-    }
+/* ---------- Generic layout ---------- */
+section { position: relative; padding: 96px 24px; }
+.container { max-width: var(--maxw); margin: 0 auto; }
 
-    /* sections */
-    section{ padding: 44px 0; }
-    .section-title{
-      display:flex; align-items:baseline; gap: 12px;
-      margin: 0 0 20px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: 30px;
-      letter-spacing: .04em;
-    }
-    .section-title span{
-      font-size: 13px;
-      color: rgba(11,43,34,.62);
-      letter-spacing: .18em;
-    }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-en);
+  font-weight: 600; font-size: 13px; letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(255,122,89,.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.eyebrow::before {
+  content: ""; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--primary);
+}
 
-    /* ====== 1行に1つ ====== */
-    .grid3{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-    .steps{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
+h1, h2, h3 { line-height: 1.35; letter-spacing: .01em; }
+h2.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  margin: 16px 0 14px;
+}
+.section-title .accent-mark {
+  background: linear-gradient(transparent 60%, var(--accent) 60%);
+  padding: 0 .15em;
+}
+.section-lead {
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.section-head { text-align: center; margin-bottom: 56px; }
 
-    /* cards（特長） */
-    .card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(11,43,34,.12);
-      background: var(--panel);
-      padding: 28px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.08);
-      display:flex;
-      gap: 18px;
-      align-items:center;
-    }
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  font-weight: 700; font-size: 15px;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 0 var(--primary-d), var(--shadow-m);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 0 var(--primary-d), var(--shadow-l); }
+.btn-primary:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--primary-d), var(--shadow-s); }
+.btn-ghost {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 8px 0 #E8DEC8, var(--shadow-s);
+}
+.btn-ghost:hover { transform: translateY(-2px); box-shadow: 0 10px 0 #E8DEC8, var(--shadow-m); }
+.btn-ghost:active { transform: translateY(4px); box-shadow: 0 4px 0 #E8DEC8; }
 
-    /* step（遊び方） */
-    .step{
-      border-radius: var(--radius);
-      border: 1px solid rgba(11,43,34,.12);
-      background: var(--panel2);
-      padding: 28px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.06);
-      display:flex;
-      gap: 18px;
-      align-items:center;
-    }
+/* ---------- HERO ---------- */
+.hero { padding-top: 56px; padding-bottom: 80px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-badges {
+  display: inline-flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 20px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 12.5px; font-weight: 700;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+}
+.pill-age { background: var(--accent); border-color: var(--accent); color: #5C4308; }
+.pill-edu { background: #E0F7F4; border-color: #BFEFE9; color: #066961; }
+.pill-safe { background: #FFE6DD; border-color: #FFCFBE; color: #B43F1F; }
 
-    /* 正方形サムネ */
-    .sq{
-      width: 150px;
-      height: 150px;
-      border-radius: 22px;
-      border: 1px solid rgba(11,43,34,.12);
-      background: rgba(11,43,34,.06);
-      overflow:hidden;
-      flex: 0 0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    @media (max-width: 520px){
-      .sq{ width: 120px; height: 120px; }
-      .card, .step{ padding: 22px; }
-    }
-    .sq img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
+.hero h1 {
+  font-size: clamp(32px, 5.4vw, 56px);
+  font-weight: 900;
+  margin: 0 0 20px;
+  letter-spacing: .02em;
+}
+.hero h1 .word {
+  display: inline-block;
+  background: linear-gradient(transparent 64%, rgba(255,200,87,.7) 64%);
+  padding: 0 .1em;
+}
+.hero h1 .word.tilt { transform: rotate(-2deg); }
+.hero h1 em {
+  color: var(--primary);
+  font-style: normal;
+}
+.hero-lead {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  color: var(--muted); font-size: 13px;
+  align-items: center;
+}
+.hero-meta-item { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary); }
 
-    .card-body, .step-body{ flex: 1 1 auto; }
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: grid; place-items: center;
+}
+.hero-blob {
+  position: absolute; inset: 0;
+  background: radial-gradient(closest-side, rgba(255,200,87,.55), rgba(255,200,87,0) 70%),
+              radial-gradient(closest-side at 70% 30%, rgba(46,196,182,.45), transparent 70%);
+  filter: blur(4px);
+  border-radius: 50%;
+  animation: floaty 8s ease-in-out infinite;
+}
+@keyframes floaty {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50%    { transform: translateY(-10px) rotate(2deg); }
+}
+.hero-img-wrap {
+  position: relative;
+  width: 78%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+  background: var(--surface);
+  transform: rotate(-3deg);
+  border: 6px solid #fff;
+}
+.hero-img-wrap img { width: 100%; display: block; }
+.sticker {
+  position: absolute;
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow-m);
+  font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sticker .emoji { font-size: 20px; }
+.sticker-1 { top: 4%; right: 0; transform: rotate(6deg); color: var(--berry); }
+.sticker-2 { bottom: 8%; left: -8px; transform: rotate(-5deg); color: var(--secondary); }
+.sticker-3 { top: 44%; right: -14px; transform: rotate(3deg); color: var(--primary); }
 
-    .card h3{
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.35;
-    }
-    .card p{
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.95;
-      font-size: 17px;
-    }
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-visual { order: -1; aspect-ratio: 1/1; max-width: 360px; margin: 0 auto; }
+  .hero-actions { justify-content: flex-start; }
+}
 
-    .step b{
-      display:inline-block;
-      margin-bottom: 10px;
-      font-weight: 900;
-      font-size: 20px;
-      line-height: 1.35;
-    }
-    .step p{
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.95;
-      font-size: 17px;
-    }
+/* ---------- "おすすめなお子さま" ---------- */
+.target {
+  padding: 64px 24px;
+}
+.target-card {
+  background: var(--surface);
+  border-radius: var(--radius-l);
+  padding: 48px;
+  box-shadow: var(--shadow-m);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.target-card::before {
+  content: "👀";
+  position: absolute; top: -28px; right: -10px;
+  font-size: 120px; opacity: .07; transform: rotate(15deg);
+}
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  margin-top: 24px;
+}
+.target-grid li {
+  list-style: none;
+  display: flex; align-items: flex-start; gap: 12px;
+  font-weight: 500; color: var(--ink);
+}
+.target-grid li .check {
+  flex: 0 0 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: #fff;
+  display: grid; place-items: center;
+  font-weight: 900; font-size: 14px;
+  margin-top: 2px;
+}
+.target-card h2 {
+  font-size: clamp(24px, 3.4vw, 32px);
+  margin: 8px 0 0;
+  font-weight: 900;
+}
+.target-card h2 small {
+  display: block;
+  font-size: 13px; font-weight: 600;
+  color: var(--primary);
+  letter-spacing: .12em;
+  margin-bottom: 6px;
+  font-family: var(--font-en);
+  text-transform: uppercase;
+}
+@media (max-width: 720px) {
+  .target-card { padding: 32px 24px; }
+  .target-grid { grid-template-columns: 1fr; gap: 12px; }
+}
 
-    /* FAQ */
-    .faq{ display:grid; gap: 12px; }
-    details{
-      border-radius: 14px;
-      border: 1px solid rgba(11,43,34,.12);
-      background: rgba(255,255,255,.85);
-      padding: 14px 16px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.06);
-    }
-    summary{
-      cursor:pointer;
-      font-weight: 900;
-      font-size: 18px;
-    }
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 16px;
-    }
+/* ---------- Features ---------- */
+.features { padding-top: 80px; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.feat {
+  background: var(--surface);
+  border-radius: var(--radius-l);
+  padding: 28px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.feat:hover { transform: translateY(-4px); box-shadow: var(--shadow-m); }
+.feat-num {
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary);
+  letter-spacing: .12em;
+}
+.feat-img {
+  margin: 14px 0 18px;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--bg-soft);
+  display: grid; place-items: center;
+}
+.feat-img img { width: 100%; height: 100%; object-fit: cover; }
+.feat h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+.feat p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+.feat:nth-child(1) { background: linear-gradient(180deg, #FFF 0%, #FFF6EC 100%); }
+.feat:nth-child(2) { background: linear-gradient(180deg, #FFF 0%, #E9F8F6 100%); }
+.feat:nth-child(3) { background: linear-gradient(180deg, #FFF 0%, #FFF1DD 100%); }
 
-    /* contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      align-items:start;
-    }
+@media (max-width: 880px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
 
-    .box{
-      border-radius: var(--radius);
-      border: 1px solid rgba(11,43,34,.12);
-      background: rgba(255,255,255,.92);
-      padding: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.08);
-    }
-    .box h3{
-      margin:0 0 12px;
-      font-size: 18px;
-    }
+/* ---------- 安心 (Trust) section ---------- */
+.trust {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  padding: 96px 24px;
+  position: relative;
+}
+.trust::before {
+  content: "";
+  position: absolute; top: -1px; left: 0; right: 0; height: 60px;
+  background: var(--bg);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 50% 100%, 0 0);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.trust-item {
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 26px 22px;
+  text-align: left;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+}
+.trust-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+.t1 .trust-icon { background: #FFE6DD; }
+.t2 .trust-icon { background: #E0F7F4; }
+.t3 .trust-icon { background: #FFF1C7; }
+.t4 .trust-icon { background: #DDEBFF; }
 
-    form{ margin-top: 10px; }
-    label{
-      display:block;
-      font-size: 15px;
-      font-weight: 900;
-      margin: 12px 0 8px;
-    }
-    input, textarea{
-      width:100%;
-      border-radius: 12px;
-      border: 1px solid rgba(11,43,34,.18);
-      padding: 14px 14px;
-      font-size: 16px;
-      outline: none;
-      background: rgba(255,255,255,.95);
-    }
-    textarea{ min-height: 140px; resize: vertical; }
-    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 680px){
-      .form-row{ grid-template-columns: 1fr; }
-    }
-    .form-actions{
-      display:flex; gap: 10px; align-items:center; flex-wrap:wrap;
-      margin-top: 14px;
-    }
-    .note{
-      font-size: 13px;
-      color: rgba(11,43,34,.62);
-      line-height: 1.7;
-    }
+.trust-item h4 {
+  margin: 0 0 6px;
+  font-size: 16px; font-weight: 900;
+}
+.trust-item p {
+  margin: 0; font-size: 13.5px;
+  color: var(--ink-soft); line-height: 1.75;
+}
+@media (max-width: 880px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .trust-grid { grid-template-columns: 1fr; }
+}
 
-    /* footer */
-    footer{
-      padding: 22px 0 36px;
-      color: rgba(11,43,34,.70);
-      font-size: 13px;
-      text-align:center;
-    }
-    .footer-links{
-      display:flex; gap: 10px; justify-content:center; flex-wrap:wrap;
-      margin-top: 10px;
-    }
-    .footer-links a{
-      text-decoration:none;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(11,43,34,.12);
-      background: rgba(255,255,255,.60);
-      color: rgba(11,43,34,.80);
-      font-size: 13px;
-    }
-    .footer-links a:hover{ background: rgba(255,255,255,.80); color: var(--text); }
-  </style>
+/* ---------- HOW TO ---------- */
+.how { padding-top: 96px; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  position: relative;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 90px; left: 8%; right: 8%;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--primary) 0 8px, transparent 8px 16px);
+  z-index: 0;
+}
+.step {
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 24px 22px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+  position: relative;
+  z-index: 1;
+}
+.step-num {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--font-en);
+  font-weight: 700; font-size: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 0 var(--primary-d);
+}
+.step:nth-child(2) .step-num { background: var(--secondary); box-shadow: 0 4px 0 #1f9c91; }
+.step:nth-child(3) .step-num { background: var(--accent); color: #5C4308; box-shadow: 0 4px 0 #D9A431; }
+.step:nth-child(4) .step-num { background: var(--berry); box-shadow: 0 4px 0 #962e6c; }
+
+.step-img {
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--bg-soft);
+  margin-bottom: 14px;
+}
+.step-img img { width: 100%; height: 100%; object-fit: cover; }
+.step h4 {
+  margin: 0 0 6px;
+  font-size: 16px; font-weight: 900;
+}
+.step p {
+  margin: 0; color: var(--ink-soft);
+  font-size: 13.5px; line-height: 1.8;
+}
+@media (max-width: 880px) {
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .steps::before { display: none; }
+}
+@media (max-width: 480px) {
+  .steps { grid-template-columns: 1fr; }
+}
+
+/* ---------- ずかんプレビュー ---------- */
+.zukan {
+  padding: 96px 24px;
+}
+.zukan-card {
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius-l);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.zukan-card::before {
+  content: ""; position: absolute;
+  width: 280px; height: 280px;
+  background: radial-gradient(closest-side, rgba(255,200,87,.4), transparent 70%);
+  top: -80px; right: -80px;
+}
+.zukan-card .eyebrow { background: rgba(255,200,87,.18); color: var(--accent); }
+.zukan-card h2 {
+  font-size: clamp(26px, 3.6vw, 36px);
+  margin: 14px 0 16px;
+  font-weight: 900;
+}
+.zukan-card p { color: rgba(255,255,255,.78); margin: 0 0 24px; }
+.zukan-stats {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 22px;
+  margin-top: 8px;
+}
+.zukan-stats div { font-size: 13px; color: rgba(255,255,255,.7); }
+.zukan-stats strong {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 28px; color: var(--accent);
+  font-weight: 700;
+}
+.zukan-img {
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 6px solid rgba(255,255,255,.1);
+  aspect-ratio: 4/3;
+}
+.zukan-img img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 880px) {
+  .zukan-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 28px; }
+}
+
+/* ---------- FAQ ---------- */
+.faq { padding-top: 96px; padding-bottom: 96px; }
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-s);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-weight: 700;
+  display: flex; align-items: center; gap: 16px;
+  font-size: 15.5px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-q-mark {
+  flex: 0 0 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #5C4308;
+  display: grid; place-items: center;
+  font-family: var(--font-en); font-weight: 700;
+}
+.faq-toggle {
+  margin-left: auto;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  display: grid; place-items: center;
+  font-weight: 700;
+  transition: transform .25s ease;
+}
+.faq-item[open] .faq-toggle { transform: rotate(45deg); background: var(--primary); color: #fff; }
+.faq-body {
+  padding: 0 26px 22px 72px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+/* ---------- Final CTA / Contact ---------- */
+.cta {
+  padding: 96px 24px;
+  text-align: center;
+}
+.cta-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--berry) 100%);
+  color: #fff;
+  border-radius: var(--radius-l);
+  padding: 64px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+}
+.cta-card::before, .cta-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+}
+.cta-card::before { width: 240px; height: 240px; top: -100px; left: -60px; }
+.cta-card::after  { width: 180px; height: 180px; bottom: -80px; right: -40px; }
+.cta-card h2 {
+  font-size: clamp(26px, 3.6vw, 38px);
+  font-weight: 900;
+  margin: 10px 0 14px;
+  position: relative;
+}
+.cta-card p { margin: 0 0 28px; opacity: .95; position: relative; }
+.cta-actions {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  position: relative;
+}
+.cta-actions .btn-primary {
+  background: #fff; color: var(--primary);
+  box-shadow: 0 8px 0 rgba(0,0,0,.18), var(--shadow-m);
+}
+.cta-actions .btn-ghost {
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  box-shadow: 0 8px 0 rgba(0,0,0,.18);
+  border: 1.5px solid rgba(255,255,255,.3);
+}
+
+.contact-mini {
+  margin-top: 48px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.contact-mini a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 24px 56px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+.site-footer .brand {
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+.foot-links {
+  display: flex; gap: 18px; justify-content: center;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.foot-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.foot-links a:hover { color: var(--primary); }
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in {
+  opacity: 1; transform: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob { animation: none; }
+  .reveal { transition: none; opacity: 1; transform: none; }
+  * { scroll-behavior: auto !important; }
+}
+</style>
 </head>
-
 <body>
-  <div class="top">
-    <div class="wrap">
-      <div class="brand">
-        <img src="Title_Top.png" alt="SLIDOO" class="brand-logo" />
-      </div>
 
-      <nav class="nav">
-        <a href="#features">特長</a>
-        <a href="#how">遊び方</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">お問い合わせ</a>
-      </nav>
+<!-- ============== HEADER ============== -->
+<header class="site-header">
+  <nav class="nav">
+    <a href="#" class="brand" aria-label="SLIDOO ホームへ">
+      <span class="brand-mark">S</span>
+      <span>SLIDOO</span>
+    </a>
+    <div class="nav-links">
+      <a href="#target">こんな子に</a>
+      <a href="#features">特長</a>
+      <a href="#trust">安心ポイント</a>
+      <a href="#how">遊び方</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">App Store</a>
+    </div>
+    <a href="#contact" class="nav-cta-mobile">入手する</a>
+  </nav>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-badges">
+        <span class="pill pill-age">🧒 4〜7歳におすすめ</span>
+        <span class="pill pill-edu">📖 ずかんで学べる</span>
+        <span class="pill pill-safe">🛡️ 保護者にやさしい設計</span>
+      </div>
+      <h1>
+        <span class="word">遊んで集めて、</span><br />
+        <em>どんどん楽しくなる。</em>
+      </h1>
+      <p class="hero-lead">
+        SLIDOOは、スライドパズルで遊びながら “ずかん” を集めていく、
+        4〜7歳のお子さまのためのカジュアルゲームです。
+        短い時間でも気持ちよく遊べて、クリアの達成感とコレクションのワクワクが続きます。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">App Storeで入手</a>
+        <a href="#how" class="btn btn-ghost">遊び方を見る →</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item"><span class="dot"></span>無料でダウンロード</span>
+        <span class="hero-meta-item"><span class="dot"></span>オフラインでも遊べる</span>
+        <span class="hero-meta-item"><span class="dot"></span>広告なし</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-blob"></div>
+      <div class="hero-img-wrap">
+        <img src="LP_9.png" alt="SLIDOO アプリ画面" />
+      </div>
+      <div class="sticker sticker-1"><span class="emoji">🧩</span>パズル</div>
+      <div class="sticker sticker-2"><span class="emoji">📚</span>ずかん</div>
+      <div class="sticker sticker-3"><span class="emoji">⭐</span>達成感</div>
     </div>
   </div>
+</section>
 
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-card">
-        <img class="hero-media" src="LP_1.png" alt="SLIDOO パズル × ずかん" />
+<!-- ============== TARGET ============== -->
+<section class="target" id="target">
+  <div class="container">
+    <div class="target-card reveal">
+      <h2>
+        <small>FOR KIDS &amp; PARENTS</small>
+        こんなお子さま・<wbr />おうちの方にぴったり
+      </h2>
+      <ul class="target-grid">
+        <li><span class="check">✓</span><span>はじめてのパズル遊びにチャレンジさせたい</span></li>
+        <li><span class="check">✓</span><span>「あつめる」「そろえる」が大好きなお子さま</span></li>
+        <li><span class="check">✓</span><span>静かに集中できる遊びを探している</span></li>
+        <li><span class="check">✓</span><span>移動中・待ち時間にちょこっと遊びたい</span></li>
+        <li><span class="check">✓</span><span>ひらがながまだ読めなくてもOK</span></li>
+        <li><span class="check">✓</span><span>広告で遊びを邪魔されたくない</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <div class="hero-body">
-          <div>
-            <h1>遊んで集めて、<br>どんどん楽しくなる。</h1>
-            <p class="lead">
-              SLIDOOは、スライドパズルで遊びながら“ずかん”を集めていくカジュアルゲームです。
-              短時間でも気持ちよく遊べて、クリアの達成感とコレクションのワクワクが続きます。
-            </p>
+<!-- ============== FEATURES ============== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Feature</span>
+      <h2 class="section-title">SLIDOOの<span class="accent-mark">3つの特長</span></h2>
+      <p class="section-lead">
+        小さなお子さまでも迷わず、保護者の方も安心して見守れる ── そんな体験を大切にしています。
+      </p>
+    </div>
 
-            <div class="cta-row">
-              <a class="btn primary" href="#how">まずは遊び方を見る</a>
-              <a class="btn" href="#" onclick="alert('App Store URL が決まったらリンクを設定します'); return false;">App Store</a>
-            </div>
-          </div>
+    <div class="features-grid">
+      <article class="feat reveal">
+        <span class="feat-num">FEATURE 01</span>
+        <div class="feat-img"><img src="LP_2.png" alt="" /></div>
+        <h3>指でなぞるだけ。<br />直感で気持ちいい操作。</h3>
+        <p>ルールはシンプル。空いたマスにピースをすべらせて並べるだけ。説明書を読まなくても、お子さまが自分でルールを発見できます。</p>
+      </article>
 
-          <div class="phone" aria-label="スマホ画面のスクリーンショット">
-            <div class="screen">
-              <img src="LP_9.png" alt="アプリ画面スクリーンショット" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-              <div class="placeholder" style="display:none;">
-                画像が読み込めませんでした
-              </div>
-            </div>
-          </div>
+      <article class="feat reveal">
+        <span class="feat-num">FEATURE 02</span>
+        <div class="feat-img"><img src="LP_3.png" alt="" /></div>
+        <h3>クリアするたび、<br />“ずかん”が増えていく。</h3>
+        <p>クリアのごほうびはコレクション。生きもの・のりもの・たべものなど、テーマごとに集まっていく楽しさが、もう1回を引き出します。</p>
+      </article>
 
-        </div>
+      <article class="feat reveal">
+        <span class="feat-num">FEATURE 03</span>
+        <div class="feat-img"><img src="LP_4.png" alt="" /></div>
+        <h3>3分でも、5分でも。<br />ちょうどいい達成感。</h3>
+        <p>1ステージは短時間。区切りがつけやすいから、おでかけ前の待ち時間や寝る前のひと遊びにも。だらだら遊びを防げる設計です。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TRUST ============== -->
+<section class="trust" id="trust">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">For Parents</span>
+      <h2 class="section-title">保護者の方への<span class="accent-mark">安心ポイント</span></h2>
+      <p class="section-lead">お子さまにスマホやタブレットを渡すときの「これって大丈夫？」に、ひとつずつお答えします。</p>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-item t1 reveal">
+        <div class="trust-icon">🚫</div>
+        <h4>広告は表示しません</h4>
+        <p>遊びの途中で外部サイトに飛ぶ広告は出ません。お子さまが意図せず別ページに移動する心配がありません。</p>
+      </div>
+      <div class="trust-item t2 reveal">
+        <div class="trust-icon">📵</div>
+        <h4>オフライン対応</h4>
+        <p>基本のパズルは通信不要。電車や車の中でも、Wi-Fiがない場所でも遊べます。</p>
+      </div>
+      <div class="trust-item t3 reveal">
+        <div class="trust-icon">🔒</div>
+        <h4>課金は保護者の管理下で</h4>
+        <p>アプリ内課金はApple標準の仕組みを利用。Face IDやパスコードで誤購入を防げます。</p>
+      </div>
+      <div class="trust-item t4 reveal">
+        <div class="trust-icon">📚</div>
+        <h4>「あそびと学び」のバランス</h4>
+        <p>観察力・空間認識・集中力につながる遊びを、勉強くさくならずに体験できる設計です。</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section id="features">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>特長</h2><span>FEATURE</span>
+<!-- ============== HOW TO PLAY ============== -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How to play</span>
+      <h2 class="section-title"><span class="accent-mark">4ステップ</span>で遊べます</h2>
+      <p class="section-lead">むずかしい操作はありません。まずは「えらぶ → うごかす → そろえる → あつめる」の流れだけ。</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-img"><img src="LP_5.png" alt="" /></div>
+        <h4>パズルを選ぶ</h4>
+        <p>好きなテーマや難易度から選んでスタート。まずは気軽に触ってみてください。</p>
       </div>
-
-      <div class="grid3">
-        <div class="card">
-          <div class="sq">
-            <img src="LP_2.png" alt="特長1" onerror="this.style.display='none';">
-          </div>
-          <div class="card-body">
-            <h3>直感的で気持ちいい操作</h3>
-            <p>ルールはシンプル。ピースを動かして正しい並びにそろえるだけ。誰でもすぐに遊べます。</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sq">
-            <img src="LP_3.png" alt="特長2" onerror="this.style.display='none';">
-          </div>
-          <div class="card-body">
-            <h3>集める楽しさ（ずかん）</h3>
-            <p>クリアのごほうびでコレクションが増える。遊ぶほどに“見たくなる”体験を目指します。</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="sq">
-            <img src="LP_4.png" alt="特長3" onerror="this.style.display='none';">
-          </div>
-          <div class="card-body">
-            <h3>短時間でも達成感</h3>
-            <p>気づけばもう1回…のテンポ感で、続けやすい設計です。</p>
-          </div>
-        </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-img"><img src="LP_6.png" alt="" /></div>
+        <h4>ピースをスライド</h4>
+        <p>空きマスにピースを動かして並べ替え。シンプルだけど奥深いのが魅力です。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-img"><img src="LP_7.png" alt="" /></div>
+        <h4>クリアして達成！</h4>
+        <p>完成した瞬間の爽快感。クリア状況に応じた演出やごほうびを用意しています。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <div class="step-img"><img src="LP_8.png" alt="" /></div>
+        <h4>ずかんを集める</h4>
+        <p>クリアでずかんが増える。コレクションが埋まっていく気持ちよさを楽しめます。</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="how">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>遊び方</h2><span>HOW TO</span>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="sq">
-            <img src="LP_5.png" alt="遊び方1" onerror="this.style.display='none';">
-          </div>
-          <div class="step-body">
-            <b>STEP 1：パズルを選ぶ</b>
-            <p>好きなテーマ・難易度から選んでスタート。まずは気軽に触ってみてください。</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="sq">
-            <img src="LP_6.png" alt="遊び方2" onerror="this.style.display='none';">
-          </div>
-          <div class="step-body">
-            <b>STEP 2：ピースをスライド</b>
-            <p>空きマスにピースを動かして並べ替え。シンプルだけど奥深いのが魅力です。</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="sq">
-            <img src="LP_7.png" alt="遊び方3" onerror="this.style.display='none';">
-          </div>
-          <div class="step-body">
-            <b>STEP 3：クリアして達成！</b>
-            <p>完成した瞬間の爽快感。クリア状況に応じた演出やごほうびを用意していきます。</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="sq">
-            <img src="LP_8.png" alt="遊び方4" onerror="this.style.display='none';">
-          </div>
-          <div class="step-body">
-            <b>STEP 4：ずかんを集める</b>
-            <p>クリアでずかんが増える。コレクションが埋まっていく気持ちよさを楽しめます。</p>
-          </div>
+<!-- ============== ZUKAN PROMO ============== -->
+<section class="zukan">
+  <div class="container">
+    <div class="zukan-card reveal">
+      <div>
+        <span class="eyebrow">Collection</span>
+        <h2>“ぜんぶ集めたい！”が、<br />学びのきっかけに。</h2>
+        <p>クリアした絵柄は「ずかん」に登録。並んだコレクションを眺めるのも、次に集めたいパズルを探すのも、お子さまの好奇心を引き出してくれます。</p>
+        <div class="zukan-stats">
+          <div><strong>多数</strong>テーマ収録予定</div>
+          <div><strong>4+</strong>対象年齢</div>
+          <div><strong>0</strong>遊びを邪魔する広告</div>
         </div>
       </div>
+      <div class="zukan-img"><img src="LP_1.png" alt="" /></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="faq">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>よくある質問</h2><span>FAQ</span>
-      </div>
+<!-- ============== FAQ ============== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">よくあるご質問</h2>
+      <p class="section-lead">保護者の方からよくいただくご質問にお答えします。</p>
+    </div>
 
-      <div class="faq">
-        <details>
-          <summary>オフラインで遊べますか？</summary>
-          <p>基本プレイはオフラインでも遊べます。</p>
-        </details>
+    <div class="faq-list">
+      <details class="faq-item reveal" open>
+        <summary><span class="faq-q-mark">Q</span><span>4歳でもひとりで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          基本操作は「指でピースをすべらせるだけ」なので、ひらがなが読めなくても遊べる設計です。最初の数回だけ一緒に触っていただけると、すぐ自分で楽しめるようになります。
+        </div>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q-mark">Q</span><span>オフラインで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          基本プレイはオフラインでお楽しみいただけます。移動中や旅行先でも安心してご利用いただけます。
+        </div>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q-mark">Q</span><span>子どもが勝手に課金してしまわないか心配です。</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          アプリ内課金はAppleの仕組みを利用し、Face ID/Touch ID/パスコードで保護されます。iOSの「スクリーンタイム」設定でアプリ内課金そのものをブロックすることも可能です。購入が反映されない場合は、通信状況の確認 → アプリ再起動をお試しください。
+        </div>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q-mark">Q</span><span>広告は表示されますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          遊びを邪魔する外部広告は表示しません。お子さまが意図せず別アプリやWebに飛ぶ心配はありません。
+        </div>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q-mark">Q</span><span>不具合を見つけたらどうすればいいですか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          ページ末尾のお問い合わせからご連絡ください。ご利用端末、iOSバージョン、再現手順、可能であればスクリーンショットを添えていただけると助かります。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
 
-        <details>
-          <summary>課金はどのように行われますか？</summary>
-          <p>アプリ内課金はAppleの仕組みを利用して決済されます。購入が反映されない場合は、通信状況の確認→アプリ再起動をお試しください。</p>
-        </details>
-
-        <details>
-          <summary>不具合を見つけたら？</summary>
-          <p>末尾のお問い合わせフォームからご連絡ください。端末/iOS/再現手順/スクショがあると助かります。</p>
-        </details>
+<!-- ============== FINAL CTA ============== -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-card reveal">
+      <span class="eyebrow" style="background: rgba(255,255,255,.18); color:#fff;">Get the app</span>
+      <h2>今日のすき間時間に、<br />ちょっとだけ遊んでみませんか？</h2>
+      <p>無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary">App Storeで入手</a>
+        <a href="#how" class="btn btn-ghost">遊び方をもう一度見る</a>
       </div>
     </div>
-  </section>
 
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>お問い合わせ（サポート）</h2><span>SUPPORT</span>
-      </div>
-<div id="satori__creative_container">
-    <script id="-_-satori_creative-_-" src="//delivery.satr.jp/js/creative_set.js?d=20251119" data-key="a55ecccc4906f447"></script>
-</div>
-    </div>
-  </section>
+    <p class="contact-mini">
+      ご感想・不具合報告などは <a href="mailto:support@example.com">support@example.com</a> までお寄せください。
+    </p>
+  </div>
+</section>
 
-  <footer>
-    <div class="wrap">
-      <div>© 2026 Prism Apps / SLIDOO</div>
-      <div class="footer-links">
-        <a href="./privacy.html">プライバシーポリシー</a>
-      </div>
-    </div>
-  </footer>
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <a href="#" class="brand"><span class="brand-mark">S</span><span>SLIDOO</span></a>
+  <div class="foot-links">
+    <a href="#features">特長</a>
+    <a href="#how">遊び方</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://prism-apps.github.io/slidoo/privacy.html">プライバシーポリシー</a>
+  </div>
+  <div>© 2026 Prism Apps / SLIDOO</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
 </body>
 </html>
