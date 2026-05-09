@@ -1,26 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="SLIDOO（スライドゥ）は、4〜7歳のお子さま向けスライドパズル＆ずかん収集アプリ。遊びながら集中力・観察力・達成感を育みます。" />
-<meta property="og:title" content="SLIDOO | パズル × ずかん｜4〜7歳のお子さまへ" />
-<meta property="og:description" content="遊んで集めて、どんどん楽しくなる。スライドパズル＆ずかんで楽しく学べるカジュアルゲーム。" />
-<meta property="og:image" content="https://prism-apps.github.io/slidoo/Title_Top.png" />
-<title>SLIDOO（スライドゥ）｜4〜7歳のお子さま向けパズル × ずかんアプリ</title>
+<meta name="description" content="Mogs Land（モグスランド）は、2〜6歳のお子さま向けミニゲームコレクションアプリ。かわいいモグラキャラクターと一緒に5つのゲームで遊びながら、形・数・観察力を育みます。" />
+<meta property="og:title" content="Mogs Land | 5つのミニゲーム｜2〜6歳のお子さまへ" />
+<meta property="og:description" content="モグラのモグと一緒に、あそんで、まなぼう。広告なし・安心設計のこども向けミニゲームアプリ。" />
+<meta property="og:image" content="Title_Top.png" />
+<title>Mogs Land（モグスランド）｜2〜6歳のお子さま向けミニゲームアプリ</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
 
 <style>
-/* ============================================
-   SLIDOO Landing Page
-   Audience: Parents of 4–7 year-olds
-   Aesthetic: warm cream + rounded shapes + tasteful play
-   ============================================ */
-
 :root {
   --bg:        #FFF7EC;
   --bg-soft:   #FFEFD9;
@@ -30,11 +23,11 @@
   --muted:     #8A8AA0;
   --line:      #F1E5D0;
 
-  --primary:   #FF7A59;   /* coral */
+  --primary:   #FF7A59;
   --primary-d: #E85D3C;
-  --secondary: #2EC4B6;   /* teal */
-  --accent:    #FFC857;   /* mustard */
-  --berry:     #C2528B;   /* magenta accent */
+  --secondary: #2EC4B6;
+  --accent:    #FFC857;
+  --berry:     #C2528B;
   --sky:       #6FB6FF;
 
   --radius-s: 14px;
@@ -67,7 +60,6 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 
-/* ---------- Decorative background ---------- */
 body::before {
   content: "";
   position: fixed; inset: 0;
@@ -88,7 +80,6 @@ body::after {
   pointer-events: none;
 }
 
-/* ---------- Header / Nav ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(12px);
@@ -110,20 +101,10 @@ body::after {
 .brand-mark {
   width: 38px; height: 38px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
   display: grid; place-items: center;
-  color: #fff; font-weight: 700;
+  color: #fff; font-weight: 700; font-size: 20px;
   box-shadow: var(--shadow-s);
-  position: relative;
-}
-.brand-mark::after {
-  content: "";
-  position: absolute; inset: 6px;
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,.55) 50%, transparent 50%) 0 0/50% 50%,
-    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.25) 50%) 0 50%/50% 50%;
-  background-repeat: no-repeat;
 }
 .nav-links {
   display: flex; gap: 6px; align-items: center;
@@ -141,7 +122,6 @@ body::after {
   padding: 10px 18px !important;
 }
 .nav-cta:hover { background: var(--primary) !important; }
-.nav-toggle { display: none; }
 
 @media (max-width: 720px) {
   .nav-links { display: none; }
@@ -154,7 +134,6 @@ body::after {
 }
 .nav-cta-mobile { display: none; }
 
-/* ---------- Generic layout ---------- */
 section { position: relative; padding: 96px 24px; }
 .container { max-width: var(--maxw); margin: 0 auto; }
 
@@ -191,7 +170,6 @@ h2.section-title {
 }
 .section-head { text-align: center; margin-bottom: 56px; }
 
-/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 16px 26px;
@@ -218,7 +196,7 @@ h2.section-title {
 .btn-ghost:hover { transform: translateY(-2px); box-shadow: 0 10px 0 #E8DEC8, var(--shadow-m); }
 .btn-ghost:active { transform: translateY(4px); box-shadow: 0 4px 0 #E8DEC8; }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero { padding-top: 56px; padding-bottom: 80px; }
 .hero-grid {
   display: grid;
@@ -238,8 +216,8 @@ h2.section-title {
   border: 1.5px solid var(--line);
   color: var(--ink-soft);
 }
-.pill-age { background: var(--accent); border-color: var(--accent); color: #5C4308; }
-.pill-edu { background: #E0F7F4; border-color: #BFEFE9; color: #066961; }
+.pill-age  { background: var(--accent); border-color: var(--accent); color: #5C4308; }
+.pill-edu  { background: #E0F7F4; border-color: #BFEFE9; color: #066961; }
 .pill-safe { background: #FFE6DD; border-color: #FFCFBE; color: #B43F1F; }
 
 .hero h1 {
@@ -248,16 +226,7 @@ h2.section-title {
   margin: 0 0 20px;
   letter-spacing: .02em;
 }
-.hero h1 .word {
-  display: inline-block;
-  background: linear-gradient(transparent 64%, rgba(255,200,87,.7) 64%);
-  padding: 0 .1em;
-}
-.hero h1 .word.tilt { transform: rotate(-2deg); }
-.hero h1 em {
-  color: var(--primary);
-  font-style: normal;
-}
+.hero h1 em { color: var(--primary); font-style: normal; }
 .hero-lead {
   font-size: 17px;
   color: var(--ink-soft);
@@ -276,7 +245,6 @@ h2.section-title {
 .hero-meta-item { display: inline-flex; align-items: center; gap: 6px; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary); }
 
-/* Hero visual */
 .hero-visual {
   position: relative;
   aspect-ratio: 4 / 5;
@@ -292,7 +260,7 @@ h2.section-title {
 }
 @keyframes floaty {
   0%,100% { transform: translateY(0) rotate(0); }
-  50%    { transform: translateY(-10px) rotate(2deg); }
+  50%     { transform: translateY(-10px) rotate(2deg); }
 }
 .hero-img-wrap {
   position: relative;
@@ -322,13 +290,10 @@ h2.section-title {
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-visual { order: -1; aspect-ratio: 1/1; max-width: 360px; margin: 0 auto; }
-  .hero-actions { justify-content: flex-start; }
 }
 
-/* ---------- "おすすめなお子さま" ---------- */
-.target {
-  padding: 64px 24px;
-}
+/* TARGET */
+.target { padding: 64px 24px; }
 .target-card {
   background: var(--surface);
   border-radius: var(--radius-l);
@@ -339,7 +304,7 @@ h2.section-title {
   overflow: hidden;
 }
 .target-card::before {
-  content: "👀";
+  content: "🌿";
   position: absolute; top: -28px; right: -10px;
   font-size: 120px; opacity: .07; transform: rotate(15deg);
 }
@@ -382,7 +347,7 @@ h2.section-title {
   .target-grid { grid-template-columns: 1fr; gap: 12px; }
 }
 
-/* ---------- Features ---------- */
+/* FEATURES */
 .features { padding-top: 80px; }
 .features-grid {
   display: grid;
@@ -402,10 +367,8 @@ h2.section-title {
 .feat:hover { transform: translateY(-4px); box-shadow: var(--shadow-m); }
 .feat-num {
   font-family: var(--font-en);
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--primary);
-  letter-spacing: .12em;
+  font-weight: 700; font-size: 14px;
+  color: var(--primary); letter-spacing: .12em;
 }
 .feat-img {
   margin: 14px 0 18px;
@@ -416,26 +379,15 @@ h2.section-title {
   display: grid; place-items: center;
 }
 .feat-img img { width: 100%; height: 100%; object-fit: cover; }
-.feat h3 {
-  font-size: 20px;
-  font-weight: 900;
-  margin: 0 0 8px;
-}
-.feat p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  line-height: 1.85;
-}
+.feat h3 { font-size: 20px; font-weight: 900; margin: 0 0 8px; }
+.feat p { margin: 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.85; }
 .feat:nth-child(1) { background: linear-gradient(180deg, #FFF 0%, #FFF6EC 100%); }
 .feat:nth-child(2) { background: linear-gradient(180deg, #FFF 0%, #E9F8F6 100%); }
 .feat:nth-child(3) { background: linear-gradient(180deg, #FFF 0%, #FFF1DD 100%); }
 
-@media (max-width: 880px) {
-  .features-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 880px) { .features-grid { grid-template-columns: 1fr; } }
 
-/* ---------- 安心 (Trust) section ---------- */
+/* TRUST */
 .trust {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
   padding: 96px 24px;
@@ -472,23 +424,46 @@ h2.section-title {
 .t2 .trust-icon { background: #E0F7F4; }
 .t3 .trust-icon { background: #FFF1C7; }
 .t4 .trust-icon { background: #DDEBFF; }
+.trust-item h4 { margin: 0 0 6px; font-size: 16px; font-weight: 900; }
+.trust-item p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; }
 
-.trust-item h4 {
-  margin: 0 0 6px;
-  font-size: 16px; font-weight: 900;
-}
-.trust-item p {
-  margin: 0; font-size: 13.5px;
-  color: var(--ink-soft); line-height: 1.75;
-}
-@media (max-width: 880px) {
-  .trust-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .trust-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 880px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .trust-grid { grid-template-columns: 1fr; } }
 
-/* ---------- HOW TO ---------- */
+/* GAMES */
+.games { padding-top: 96px; }
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.game-card {
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 22px 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-s);
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.game-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-m); }
+.game-icon { font-size: 36px; margin-bottom: 10px; }
+.game-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 900; }
+.game-card p { margin: 0; font-size: 12px; color: var(--ink-soft); line-height: 1.7; }
+.game-badge {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 999px;
+  background: rgba(46,196,182,.15); color: #066961;
+}
+.game-badge.locked { background: rgba(194,82,139,.12); color: #962e6c; }
+
+@media (max-width: 880px) { .games-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* HOW TO */
 .how { padding-top: 96px; }
 .steps {
   display: grid;
@@ -510,8 +485,7 @@ h2.section-title {
   padding: 24px 22px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-s);
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
 }
 .step-num {
   width: 44px; height: 44px;
@@ -527,36 +501,18 @@ h2.section-title {
 .step:nth-child(2) .step-num { background: var(--secondary); box-shadow: 0 4px 0 #1f9c91; }
 .step:nth-child(3) .step-num { background: var(--accent); color: #5C4308; box-shadow: 0 4px 0 #D9A431; }
 .step:nth-child(4) .step-num { background: var(--berry); box-shadow: 0 4px 0 #962e6c; }
+.step h4 { margin: 0 0 6px; font-size: 16px; font-weight: 900; }
+.step p { margin: 0; color: var(--ink-soft); font-size: 13.5px; line-height: 1.8; }
 
-.step-img {
-  border-radius: var(--radius-s);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  background: var(--bg-soft);
-  margin-bottom: 14px;
-}
-.step-img img { width: 100%; height: 100%; object-fit: cover; }
-.step h4 {
-  margin: 0 0 6px;
-  font-size: 16px; font-weight: 900;
-}
-.step p {
-  margin: 0; color: var(--ink-soft);
-  font-size: 13.5px; line-height: 1.8;
-}
 @media (max-width: 880px) {
   .steps { grid-template-columns: repeat(2, 1fr); }
   .steps::before { display: none; }
 }
-@media (max-width: 480px) {
-  .steps { grid-template-columns: 1fr; }
-}
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
 
-/* ---------- ずかんプレビュー ---------- */
-.zukan {
-  padding: 96px 24px;
-}
-.zukan-card {
+/* SUBSCRIPTION */
+.sub-section { padding: 96px 24px; }
+.sub-card {
   background: var(--ink);
   color: #fff;
   border-radius: var(--radius-l);
@@ -568,50 +524,46 @@ h2.section-title {
   position: relative;
   overflow: hidden;
 }
-.zukan-card::before {
+.sub-card::before {
   content: ""; position: absolute;
   width: 280px; height: 280px;
   background: radial-gradient(closest-side, rgba(255,200,87,.4), transparent 70%);
   top: -80px; right: -80px;
 }
-.zukan-card .eyebrow { background: rgba(255,200,87,.18); color: var(--accent); }
-.zukan-card h2 {
-  font-size: clamp(26px, 3.6vw, 36px);
-  margin: 14px 0 16px;
-  font-weight: 900;
-}
-.zukan-card p { color: rgba(255,255,255,.78); margin: 0 0 24px; }
-.zukan-stats {
-  display: flex; flex-wrap: wrap; gap: 24px;
-  border-top: 1px solid rgba(255,255,255,.15);
-  padding-top: 22px;
+.sub-card .eyebrow { background: rgba(255,200,87,.18); color: var(--accent); }
+.sub-card h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 14px 0 16px; font-weight: 900; }
+.sub-card p { color: rgba(255,255,255,.78); margin: 0 0 24px; }
+.sub-plans {
+  display: flex; flex-direction: column; gap: 16px;
   margin-top: 8px;
 }
-.zukan-stats div { font-size: 13px; color: rgba(255,255,255,.7); }
-.zukan-stats strong {
-  display: block;
-  font-family: var(--font-en);
-  font-size: 28px; color: var(--accent);
-  font-weight: 700;
+.sub-plan {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: rgba(255,255,255,.07);
+  border-radius: var(--radius-s);
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,.12);
 }
-.zukan-img {
+.sub-plan-icon { font-size: 28px; flex-shrink: 0; }
+.sub-plan h4 { margin: 0 0 4px; font-size: 15px; font-weight: 900; color: var(--accent); }
+.sub-plan p { margin: 0; font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6; }
+.sub-visual {
   border-radius: var(--radius-m);
   overflow: hidden;
   background: rgba(255,255,255,.06);
   border: 6px solid rgba(255,255,255,.1);
   aspect-ratio: 4/3;
-}
-.zukan-img img { width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 880px) {
-  .zukan-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 28px; }
+  display: grid; place-items: center;
+  font-size: 80px;
 }
 
-/* ---------- FAQ ---------- */
-.faq { padding-top: 96px; padding-bottom: 96px; }
-.faq-list {
-  max-width: 780px;
-  margin: 0 auto;
+@media (max-width: 880px) {
+  .sub-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 28px; }
 }
+
+/* FAQ */
+.faq { padding-top: 96px; padding-bottom: 96px; }
+.faq-list { max-width: 780px; margin: 0 auto; }
 .faq-item {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -654,33 +606,26 @@ h2.section-title {
   line-height: 1.85;
 }
 
-/* ---------- Final CTA / Contact ---------- */
-.cta {
-  padding: 96px 24px;
-  text-align: center;
-}
+/* CTA */
+.cta { padding: 96px 24px; text-align: center; }
 .cta-card {
   background: linear-gradient(135deg, var(--primary) 0%, var(--berry) 100%);
   color: #fff;
   border-radius: var(--radius-l);
   padding: 64px 32px;
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
   box-shadow: var(--shadow-l);
 }
 .cta-card::before, .cta-card::after {
-  content: "";
-  position: absolute;
+  content: ""; position: absolute;
   border-radius: 50%;
   background: rgba(255,255,255,.12);
 }
 .cta-card::before { width: 240px; height: 240px; top: -100px; left: -60px; }
 .cta-card::after  { width: 180px; height: 180px; bottom: -80px; right: -40px; }
 .cta-card h2 {
-  font-size: clamp(26px, 3.6vw, 38px);
-  font-weight: 900;
-  margin: 10px 0 14px;
-  position: relative;
+  font-size: clamp(26px, 3.6vw, 38px); font-weight: 900;
+  margin: 10px 0 14px; position: relative;
 }
 .cta-card p { margin: 0 0 28px; opacity: .95; position: relative; }
 .cta-actions {
@@ -692,59 +637,30 @@ h2.section-title {
   box-shadow: 0 8px 0 rgba(0,0,0,.18), var(--shadow-m);
 }
 .cta-actions .btn-ghost {
-  background: rgba(255,255,255,.16);
-  color: #fff;
+  background: rgba(255,255,255,.16); color: #fff;
   box-shadow: 0 8px 0 rgba(0,0,0,.18);
   border: 1.5px solid rgba(255,255,255,.3);
 }
+.contact-mini { margin-top: 48px; font-size: 14px; color: var(--ink-soft); }
+.contact-mini a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
-.contact-mini {
-  margin-top: 48px;
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-.contact-mini a {
-  color: var(--primary);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-
-/* ---------- Footer ---------- */
+/* FOOTER */
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 32px 24px 56px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
+  text-align: center; font-size: 13px; color: var(--muted);
 }
-.site-footer .brand {
-  justify-content: center;
-  margin-bottom: 12px;
-  font-size: 18px;
-}
+.site-footer .brand { justify-content: center; margin-bottom: 12px; font-size: 18px; }
 .foot-links {
   display: flex; gap: 18px; justify-content: center;
-  margin: 14px 0;
-  flex-wrap: wrap;
+  margin: 14px 0; flex-wrap: wrap;
 }
-.foot-links a {
-  color: var(--ink-soft);
-  text-decoration: none;
-}
+.foot-links a { color: var(--ink-soft); text-decoration: none; }
 .foot-links a:hover { color: var(--primary); }
 
-/* ---------- Reveal-on-scroll ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.in {
-  opacity: 1; transform: none;
-}
-
-/* Reduced motion */
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .hero-blob { animation: none; }
   .reveal { transition: none; opacity: 1; transform: none; }
@@ -754,16 +670,17 @@ h2.section-title {
 </head>
 <body>
 
-<!-- ============== HEADER ============== -->
+<!-- HEADER -->
 <header class="site-header">
   <nav class="nav">
-    <a href="#" class="brand" aria-label="SLIDOO ホームへ">
-      <span class="brand-mark">S</span>
-      <span>SLIDOO</span>
+    <a href="#" class="brand" aria-label="Mogs Land ホームへ">
+      <span class="brand-mark">🐾</span>
+      <span>Mogs Land</span>
     </a>
     <div class="nav-links">
       <a href="#target">こんな子に</a>
       <a href="#features">特長</a>
+      <a href="#games">ゲーム紹介</a>
       <a href="#trust">安心ポイント</a>
       <a href="#how">遊び方</a>
       <a href="#faq">FAQ</a>
@@ -773,31 +690,31 @@ h2.section-title {
   </nav>
 </header>
 
-<!-- ============== HERO ============== -->
+<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-text">
       <div class="hero-badges">
-        <span class="pill pill-age">🧒 4〜7歳におすすめ</span>
-        <span class="pill pill-edu">📖 ずかんで学べる</span>
-        <span class="pill pill-safe">🛡️ 保護者にやさしい設計</span>
+        <span class="pill pill-age">🧒 2〜6歳におすすめ</span>
+        <span class="pill pill-edu">🎮 5つのミニゲーム</span>
+        <span class="pill pill-safe">🛡️ 広告なし・安心設計</span>
       </div>
       <h1>
-        <span class="word">遊んで集めて、</span><br />
-        <em>どんどん楽しくなる。</em>
+        モグと一緒に、<br />
+        <em>あそんで、まなぼう！</em>
       </h1>
       <p class="hero-lead">
-        SLIDOOは、スライドパズルで遊びながら “ずかん” を集めていく、
-        4〜7歳のお子さまのためのカジュアルゲームです。
-        短い時間でも気持ちよく遊べて、クリアの達成感とコレクションのワクワクが続きます。
+        Mogs Landは、かわいいモグラキャラクターのモグたちと一緒に5つのミニゲームで遊べる、
+        2〜6歳のお子さまのためのゲームアプリです。
+        形・数・観察力を楽しみながら自然に育てます。
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">App Storeで入手</a>
-        <a href="#how" class="btn btn-ghost">遊び方を見る →</a>
+        <a href="#games" class="btn btn-ghost">ゲームを見る →</a>
       </div>
       <div class="hero-meta">
         <span class="hero-meta-item"><span class="dot"></span>無料でダウンロード</span>
-        <span class="hero-meta-item"><span class="dot"></span>オフラインでも遊べる</span>
+        <span class="hero-meta-item"><span class="dot"></span>SAMPLEモードは無料</span>
         <span class="hero-meta-item"><span class="dot"></span>広告なし</span>
       </div>
     </div>
@@ -805,16 +722,16 @@ h2.section-title {
     <div class="hero-visual" aria-hidden="true">
       <div class="hero-blob"></div>
       <div class="hero-img-wrap">
-        <img src="LP_9.png" alt="SLIDOO アプリ画面" />
+        <img src="LP_Top.png" alt="Mogs Land アプリ画面" />
       </div>
       <div class="sticker sticker-1"><span class="emoji">🧩</span>パズル</div>
-      <div class="sticker sticker-2"><span class="emoji">📚</span>ずかん</div>
+      <div class="sticker sticker-2"><span class="emoji">🥕</span>やさい</div>
       <div class="sticker sticker-3"><span class="emoji">⭐</span>達成感</div>
     </div>
   </div>
 </section>
 
-<!-- ============== TARGET ============== -->
+<!-- TARGET -->
 <section class="target" id="target">
   <div class="container">
     <div class="target-card reveal">
@@ -823,23 +740,23 @@ h2.section-title {
         こんなお子さま・<wbr />おうちの方にぴったり
       </h2>
       <ul class="target-grid">
-        <li><span class="check">✓</span><span>はじめてのパズル遊びにチャレンジさせたい</span></li>
-        <li><span class="check">✓</span><span>「あつめる」「そろえる」が大好きなお子さま</span></li>
-        <li><span class="check">✓</span><span>静かに集中できる遊びを探している</span></li>
+        <li><span class="check">✓</span><span>はじめてのゲームを楽しませたい</span></li>
+        <li><span class="check">✓</span><span>形合わせ・数かぞえが好きなお子さま</span></li>
+        <li><span class="check">✓</span><span>かわいいキャラクターに夢中なお子さま</span></li>
         <li><span class="check">✓</span><span>移動中・待ち時間にちょこっと遊びたい</span></li>
-        <li><span class="check">✓</span><span>ひらがながまだ読めなくてもOK</span></li>
-        <li><span class="check">✓</span><span>広告で遊びを邪魔されたくない</span></li>
+        <li><span class="check">✓</span><span>ひらがなが読めなくてもOK</span></li>
+        <li><span class="check">✓</span><span>広告なし・課金を管理したい保護者の方</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ============== FEATURES ============== -->
+<!-- FEATURES -->
 <section class="features" id="features">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Feature</span>
-      <h2 class="section-title">SLIDOOの<span class="accent-mark">3つの特長</span></h2>
+      <h2 class="section-title">Mogs Landの<span class="accent-mark">3つの特長</span></h2>
       <p class="section-lead">
         小さなお子さまでも迷わず、保護者の方も安心して見守れる ── そんな体験を大切にしています。
       </p>
@@ -848,29 +765,74 @@ h2.section-title {
     <div class="features-grid">
       <article class="feat reveal">
         <span class="feat-num">FEATURE 01</span>
-        <div class="feat-img"><img src="LP_2.png" alt="" /></div>
-        <h3>指でなぞるだけ。<br />直感で気持ちいい操作。</h3>
-        <p>ルールはシンプル。空いたマスにピースをすべらせて並べるだけ。説明書を読まなくても、お子さまが自分でルールを発見できます。</p>
+        <div class="feat-img"><img src="LP_1.png" alt="" /></div>
+        <h3>タップ・ドラッグだけ。<br />直感で気持ちいい操作。</h3>
+        <p>どのゲームもシンプルな操作で遊べます。説明書いらずで、お子さまが自分でルールを発見できます。最初の1回をいっしょに遊んであげるだけで、すぐひとりで楽しめます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 02</span>
-        <div class="feat-img"><img src="LP_3.png" alt="" /></div>
-        <h3>クリアするたび、<br />“ずかん”が増えていく。</h3>
-        <p>クリアのごほうびはコレクション。生きもの・のりもの・たべものなど、テーマごとに集まっていく楽しさが、もう1回を引き出します。</p>
+        <div class="feat-img"><img src="LP_2.png" alt="" /></div>
+        <h3>5つのゲームで、<br />飽きずに遊び続けられる。</h3>
+        <p>形合わせ・パズル・同じもの探し・バブルポップ・やさいハーベストと、バリエーション豊富な5ゲームを収録。気分に合わせて好きなゲームを選んで遊べます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 03</span>
-        <div class="feat-img"><img src="LP_4.png" alt="" /></div>
-        <h3>3分でも、5分でも。<br />ちょうどいい達成感。</h3>
-        <p>1ステージは短時間。区切りがつけやすいから、おでかけ前の待ち時間や寝る前のひと遊びにも。だらだら遊びを防げる設計です。</p>
+        <div class="feat-img"><img src="LP_3.png" alt="" /></div>
+        <h3>SAMPLEは無料。<br />まずは試してみて。</h3>
+        <p>すべてのゲームにSAMPLEモードが無料で用意されています。サブスクリプションに登録すると全レベルが開放。お子さまが気に入ってから検討できます。</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============== TRUST ============== -->
+<!-- GAME LIST -->
+<section class="games" id="games">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Games</span>
+      <h2 class="section-title"><span class="accent-mark">5つのミニゲーム</span>を収録</h2>
+      <p class="section-lead">
+        それぞれ異なる遊び心地で、毎日あきずに楽しめます。SAMPLEは全ゲーム無料で体験できます。
+      </p>
+    </div>
+    <div class="games-grid">
+      <div class="game-card reveal">
+        <div class="game-icon">🔷</div>
+        <h4>Shape Fit</h4>
+        <p>形をぴったり合わせてはめていく形合わせゲーム。空間認識力が育ちます。</p>
+        <span class="game-badge">SAMPLE 無料</span>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-icon">🧩</div>
+        <h4>Puzzle</h4>
+        <p>バラバラになった動物のパズルを完成させよう。60種類以上の動物が登場！</p>
+        <span class="game-badge">SAMPLE 無料</span>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-icon">👀</div>
+        <h4>Spot the Same!</h4>
+        <p>たくさんの絵の中から同じものを見つけよう。観察力と集中力を育みます。</p>
+        <span class="game-badge">SAMPLE 無料</span>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-icon">🫧</div>
+        <h4>Bubble Pop</h4>
+        <p>浮かんでくる泡をポンポンはじこう。リズムよく遊べる爽快ゲーム。</p>
+        <span class="game-badge">SAMPLE 無料</span>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-icon">🥦</div>
+        <h4>Veggie Harvest</h4>
+        <p>指定された野菜をトラックに積もう。数を数える力が自然と身につきます。</p>
+        <span class="game-badge">SAMPLE 無料</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
 <section class="trust" id="trust">
   <div class="container">
     <div class="section-head reveal">
@@ -883,85 +845,92 @@ h2.section-title {
       <div class="trust-item t1 reveal">
         <div class="trust-icon">🚫</div>
         <h4>広告は表示しません</h4>
-        <p>遊びの途中で外部サイトに飛ぶ広告は出ません。お子さまが意図せず別ページに移動する心配がありません。</p>
+        <p>遊びの途中で外部サイトに飛ぶ広告は一切ありません。お子さまが意図せず別ページへ移動する心配がありません。</p>
       </div>
       <div class="trust-item t2 reveal">
-        <div class="trust-icon">📵</div>
-        <h4>オフライン対応</h4>
-        <p>基本のパズルは通信不要。電車や車の中でも、Wi-Fiがない場所でも遊べます。</p>
+        <div class="trust-icon">📱</div>
+        <h4>iPhone・iPad 両対応</h4>
+        <p>お手持ちのiPhoneでもiPadでも最適なレイアウトで遊べます。家族で共有しやすい設計です。</p>
       </div>
       <div class="trust-item t3 reveal">
         <div class="trust-icon">🔒</div>
         <h4>課金は保護者の管理下で</h4>
-        <p>アプリ内課金はApple標準の仕組みを利用。Face IDやパスコードで誤購入を防げます。</p>
+        <p>サブスクリプション登録にはペアレンタルゲート（計算問題）を設置。お子さまの誤購入を防ぎます。</p>
       </div>
       <div class="trust-item t4 reveal">
-        <div class="trust-icon">📚</div>
+        <div class="trust-icon">🧠</div>
         <h4>「あそびと学び」のバランス</h4>
-        <p>観察力・空間認識・集中力につながる遊びを、勉強くさくならずに体験できる設計です。</p>
+        <p>形・数・観察力・集中力に働きかける遊びを、勉強くさくならずに体験できる設計です。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== HOW TO PLAY ============== -->
+<!-- HOW TO PLAY -->
 <section class="how" id="how">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">How to play</span>
-      <h2 class="section-title"><span class="accent-mark">4ステップ</span>で遊べます</h2>
-      <p class="section-lead">むずかしい操作はありません。まずは「えらぶ → うごかす → そろえる → あつめる」の流れだけ。</p>
+      <h2 class="section-title"><span class="accent-mark">かんたん4ステップ</span>で遊べます</h2>
+      <p class="section-lead">むずかしい操作はありません。ゲームを選んで、タップ・ドラッグするだけ。</p>
     </div>
 
     <div class="steps">
       <div class="step reveal">
         <div class="step-num">1</div>
-        <div class="step-img"><img src="LP_5.png" alt="" /></div>
-        <h4>パズルを選ぶ</h4>
-        <p>好きなテーマや難易度から選んでスタート。まずは気軽に触ってみてください。</p>
+        <h4>ゲームを選ぶ</h4>
+        <p>5つのゲームの中から好きなものをタップ。SAMPLEモードはすべて無料で遊べます。</p>
       </div>
       <div class="step reveal">
         <div class="step-num">2</div>
-        <div class="step-img"><img src="LP_6.png" alt="" /></div>
-        <h4>ピースをスライド</h4>
-        <p>空きマスにピースを動かして並べ替え。シンプルだけど奥深いのが魅力です。</p>
+        <h4>レベルを選ぶ</h4>
+        <p>SAMPLEから始めて、サブスクに登録するとStar_1・Star_2と難易度が上がっていきます。</p>
       </div>
       <div class="step reveal">
         <div class="step-num">3</div>
-        <div class="step-img"><img src="LP_7.png" alt="" /></div>
-        <h4>クリアして達成！</h4>
-        <p>完成した瞬間の爽快感。クリア状況に応じた演出やごほうびを用意しています。</p>
+        <h4>タップ・ドラッグで遊ぶ</h4>
+        <p>形を合わせる、パズルを並べる、同じものを探す ── 各ゲームのルールは直感でわかります。</p>
       </div>
       <div class="step reveal">
         <div class="step-num">4</div>
-        <div class="step-img"><img src="LP_8.png" alt="" /></div>
-        <h4>ずかんを集める</h4>
-        <p>クリアでずかんが増える。コレクションが埋まっていく気持ちよさを楽しめます。</p>
+        <h4>クリアして達成感！</h4>
+        <p>クリアするたびにスコアが記録されます。何度でも遊んで高スコアを目指そう！</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== ZUKAN PROMO ============== -->
-<section class="zukan">
+<!-- SUBSCRIPTION -->
+<section class="sub-section">
   <div class="container">
-    <div class="zukan-card reveal">
+    <div class="sub-card reveal">
       <div>
-        <span class="eyebrow">Collection</span>
-        <h2>“ぜんぶ集めたい！”が、<br />学びのきっかけに。</h2>
-        <p>クリアした絵柄は「ずかん」に登録。並んだコレクションを眺めるのも、次に集めたいパズルを探すのも、お子さまの好奇心を引き出してくれます。</p>
-        <div class="zukan-stats">
-          <div><strong>多数</strong>テーマ収録予定</div>
-          <div><strong>4+</strong>対象年齢</div>
-          <div><strong>0</strong>遊びを邪魔する広告</div>
+        <span class="eyebrow">Subscription</span>
+        <h2>サブスクで、<br />すべてのゲームを解放。</h2>
+        <p>SAMPLEモードは無料でいつでも遊べます。サブスクリプションに登録すると、全ゲームのStar_1・Star_2レベルが開放され、さらに難しく、さらに楽しく遊べます。</p>
+        <div class="sub-plans">
+          <div class="sub-plan">
+            <div class="sub-plan-icon">🆓</div>
+            <div>
+              <h4>SAMPLE（無料）</h4>
+              <p>全5ゲームのSAMPLEモードが無料。まずは気軽に体験できます。</p>
+            </div>
+          </div>
+          <div class="sub-plan">
+            <div class="sub-plan-icon">⭐</div>
+            <div>
+              <h4>サブスクリプション</h4>
+              <p>Star_1・Star_2レベルがすべて解放。より高度な問題でお子さまの力を伸ばせます。</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="zukan-img"><img src="LP_1.png" alt="" /></div>
+      <div class="sub-visual">🐾</div>
     </div>
   </div>
 </section>
 
-<!-- ============== FAQ ============== -->
+<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-head reveal">
@@ -972,49 +941,55 @@ h2.section-title {
 
     <div class="faq-list">
       <details class="faq-item reveal" open>
-        <summary><span class="faq-q-mark">Q</span><span>4歳でもひとりで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <summary><span class="faq-q-mark">Q</span><span>2歳でもひとりで遊べますか？</span><span class="faq-toggle">+</span></summary>
         <div class="faq-body">
-          基本操作は「指でピースをすべらせるだけ」なので、ひらがなが読めなくても遊べる設計です。最初の数回だけ一緒に触っていただけると、すぐ自分で楽しめるようになります。
+          基本操作はタップ・ドラッグのみなので、ひらがなが読めなくても遊べる設計です。最初の数回だけいっしょに触っていただけると、すぐ自分で楽しめるようになります。SAMPLEモードは難易度が低めに設定されています。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>オフラインで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <summary><span class="faq-q-mark">Q</span><span>無料でどこまで遊べますか？</span><span class="faq-toggle">+</span></summary>
         <div class="faq-body">
-          基本プレイはオフラインでお楽しみいただけます。移動中や旅行先でも安心してご利用いただけます。
+          全5ゲームのSAMPLEモードが無料でお楽しみいただけます。サブスクリプションに登録するとStar_1・Star_2レベルが解放され、より難易度の高い問題に挑戦できます。
         </div>
       </details>
       <details class="faq-item reveal">
         <summary><span class="faq-q-mark">Q</span><span>子どもが勝手に課金してしまわないか心配です。</span><span class="faq-toggle">+</span></summary>
         <div class="faq-body">
-          アプリ内課金はAppleの仕組みを利用し、Face ID/Touch ID/パスコードで保護されます。iOSの「スクリーンタイム」設定でアプリ内課金そのものをブロックすることも可能です。購入が反映されない場合は、通信状況の確認 → アプリ再起動をお試しください。
+          サブスクリプション登録時にはペアレンタルゲート（大人向けの計算問題）を設置しています。また、AppleのFace ID / Touch ID / パスコードによる保護も働きます。iOSのスクリーンタイム設定でアプリ内課金をブロックすることも可能です。
         </div>
       </details>
       <details class="faq-item reveal">
         <summary><span class="faq-q-mark">Q</span><span>広告は表示されますか？</span><span class="faq-toggle">+</span></summary>
         <div class="faq-body">
-          遊びを邪魔する外部広告は表示しません。お子さまが意図せず別アプリやWebに飛ぶ心配はありません。
+          外部広告は一切表示しません。遊びを邪魔する広告がないため、お子さまが安心して集中して遊べます。
+        </div>
+      </details>
+      <details class="faq-item reveal">
+        <summary><span class="faq-q-mark">Q</span><span>iPhone・iPadどちらでも使えますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body">
+          はい、iPhone・iPad両方に対応しています。ご家族のデバイスでお楽しみいただけます。1つのApple IDで複数デバイスに対応しています。
         </div>
       </details>
       <details class="faq-item reveal">
         <summary><span class="faq-q-mark">Q</span><span>不具合を見つけたらどうすればいいですか？</span><span class="faq-toggle">+</span></summary>
         <div class="faq-body">
-          ページ末尾のお問い合わせからご連絡ください。ご利用端末、iOSバージョン、再現手順、可能であればスクリーンショットを添えていただけると助かります。
+          ページ末尾のお問い合わせからご連絡ください。ご利用端末、iOSバージョン、再現手順を添えていただけると助かります。
         </div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ============== FINAL CTA ============== -->
+<!-- FINAL CTA -->
 <section class="cta" id="contact">
   <div class="container">
     <div class="cta-card reveal">
       <span class="eyebrow" style="background: rgba(255,255,255,.18); color:#fff;">Get the app</span>
-      <h2>今日のすき間時間に、<br />ちょっとだけ遊んでみませんか？</h2>
-      <p>無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。</p>
+      <h2>モグたちと一緒に、<br />今日から遊んでみませんか？</h2>
+      <p>SAMPLEモードは無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。</p>
       <div class="cta-actions">
         <a href="#" class="btn btn-primary">App Storeで入手</a>
-        <a href="#how" class="btn btn-ghost">遊び方をもう一度見る</a>
+        <a href="#games" class="btn btn-ghost">ゲームをもう一度見る</a>
       </div>
     </div>
 
@@ -1024,20 +999,20 @@ h2.section-title {
   </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
+<!-- FOOTER -->
 <footer class="site-footer">
-  <a href="#" class="brand"><span class="brand-mark">S</span><span>SLIDOO</span></a>
+  <a href="#" class="brand"><span class="brand-mark">🐾</span><span>Mogs Land</span></a>
   <div class="foot-links">
     <a href="#features">特長</a>
+    <a href="#games">ゲーム紹介</a>
     <a href="#how">遊び方</a>
     <a href="#faq">FAQ</a>
-    <a href="https://prism-apps.github.io/slidoo/privacy.html">プライバシーポリシー</a>
+    <a href="privacy.html">プライバシーポリシー</a>
   </div>
-  <div>© 2026 Prism Apps / SLIDOO</div>
+  <div>&copy; 2026 Mogs Land</div>
 </footer>
 
 <script>
-  // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
