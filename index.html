@@ -471,7 +471,14 @@ h2.section-title {
 .game-badge.locked { background: rgba(194,82,139,.12); color: #962e6c; }
 
 @media (max-width: 880px) { .games-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 480px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) {
+  .games-grid { grid-template-columns: repeat(2, 1fr); }
+  .games-grid > .game-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 8px);
+    margin: 0 auto;
+  }
+}
 
 /* HOW TO */
 .how { padding-top: 96px; }
@@ -668,6 +675,16 @@ h2.section-title {
 .foot-links a { color: var(--ink-soft); text-decoration: none; }
 .foot-links a:hover { color: var(--primary); }
 
+/* Mobile spacing tune-up */
+@media (max-width: 600px) {
+  section { padding: 64px 20px; }
+  .hero { padding-top: 40px; padding-bottom: 56px; }
+  .target { padding: 48px 20px; }
+  .trust, .sub-section, .cta { padding: 64px 20px; }
+  .section-lead { margin-bottom: 40px; }
+  .section-head { margin-bottom: 40px; }
+}
+
 /* Reveal */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -732,7 +749,7 @@ h2.section-title {
     <div class="hero-visual" aria-hidden="true">
       <div class="hero-blob"></div>
       <div class="hero-img-wrap">
-        <img src="LP_Top.png" alt="Mogs Land アプリ画面" />
+        <img src="Title_Top.png" alt="Mogs Land アプリ画面" />
       </div>
       <div class="sticker sticker-1"><span class="emoji">🧩</span>パズル</div>
       <div class="sticker sticker-2"><span class="emoji">🥕</span>やさい</div>
