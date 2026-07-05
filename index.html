@@ -144,6 +144,25 @@ body::after {
 }
 .nav-cta-mobile { display: none; }
 
+.lang-select-wrap { position: relative; display: inline-flex; align-items: center; }
+.lang-select-wrap::after {
+  content: "▾"; position: absolute; right: 12px;
+  font-size: 10px; color: var(--ink-soft); pointer-events: none;
+}
+.lang-select {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft); font-weight: 600; font-size: 13px;
+  padding: 8px 28px 8px 14px; border-radius: 999px;
+  cursor: pointer; font-family: inherit;
+}
+.lang-select:hover { background: var(--bg-soft); color: var(--ink); }
+.lang-select-wrap.mobile-only { display: none; }
+@media (max-width: 720px) {
+  .lang-select-wrap.mobile-only { display: inline-flex; }
+}
+
 section { position: relative; padding: 96px 24px; }
 .container { max-width: var(--maxw); margin: 0 auto; }
 
@@ -594,6 +613,31 @@ h2.section-title {
 .contact-mini { margin-top: 48px; font-size: 14px; color: var(--ink-soft); }
 .contact-mini a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
+.contact-form-wrap { margin-top: 48px; text-align: left; }
+.contact-lead { text-align: center; color: var(--ink-soft); margin: 0 0 24px; font-size: 14.5px; }
+.contact-form {
+  max-width: 560px; margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 32px;
+  box-shadow: var(--shadow-m);
+  display: grid; gap: 18px;
+}
+.form-field { display: grid; gap: 6px; text-align: left; }
+.form-field label { font-weight: 700; font-size: 13.5px; color: var(--ink); }
+.form-field input, .form-field textarea {
+  font-family: inherit; font-size: 14.5px; color: var(--ink);
+  border: 1.5px solid var(--line); border-radius: var(--radius-s);
+  padding: 12px 14px; background: var(--bg);
+  resize: vertical;
+}
+.form-field input:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--primary);
+}
+.contact-form .btn-primary { justify-self: start; }
+.form-note { font-size: 12.5px; color: var(--muted); text-align: center; margin: 0; }
+
 /* FOOTER */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -628,14 +672,28 @@ h2.section-title {
       <span>Mogs Land</span>
     </a>
     <div class="nav-links">
-      <a href="#target">こんな子に</a>
-      <a href="#features">特長</a>
-      <a href="#games">ゲーム紹介</a>
-      <a href="#trust">安心ポイント</a>
-      <a href="#faq">FAQ</a>
+      <a href="#target" data-i18n="nav.target">こんな子に</a>
+      <a href="#features" data-i18n="nav.features">特長</a>
+      <a href="#games" data-i18n="nav.games">ゲーム紹介</a>
+      <a href="#trust" data-i18n="nav.trust">安心ポイント</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="#contact" class="nav-cta">App Store</a>
+      <div class="lang-select-wrap">
+        <select class="lang-select js-lang-select" aria-label="Language / 言語 / 语言">
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
     </div>
-    <a href="#contact" class="nav-cta-mobile">入手する</a>
+    <div class="lang-select-wrap mobile-only">
+      <select class="lang-select js-lang-select" aria-label="Language / 言語 / 语言">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+    <a href="#contact" class="nav-cta-mobile" data-i18n="nav.getapp">入手する</a>
   </nav>
 </header>
 
@@ -644,21 +702,21 @@ h2.section-title {
   <div class="container hero-grid">
     <div class="hero-text">
       <div class="hero-badges">
-        <span class="pill pill-age">🧒 2〜6歳におすすめ</span>
-        <span class="pill pill-edu">🎮 5つのミニゲーム</span>
-        <span class="pill pill-safe">🛡️ 広告なし・安心設計</span>
+        <span class="pill pill-age" data-i18n="hero.badge.age">🧒 2〜6歳におすすめ</span>
+        <span class="pill pill-edu" data-i18n="hero.badge.edu">🎮 5つのミニゲーム</span>
+        <span class="pill pill-safe" data-i18n="hero.badge.safe">🛡️ 広告なし・安心設計</span>
       </div>
-      <h1>
+      <h1 data-i18n-html="hero.h1">
         モグと一緒に、あそんで、<br />
         <em>まなぼう！</em>
       </h1>
-      <p class="hero-lead">
+      <p class="hero-lead" data-i18n="hero.lead">
         Mogs Landは、かわいいモグラキャラクターのモグたちと一緒に5つのミニゲームで遊べる、
         2〜6歳のお子さまのためのゲームアプリです。
         形・数・観察力を楽しみながら自然に育てます。
       </p>
       <div class="hero-actions">
-        <a href="https://apps.apple.com/jp/app/slidoo/id6759208332" target="_blank" rel="noopener" class="btn btn-primary">App Storeで入手</a>
+        <a href="https://apps.apple.com/jp/app/slidoo/id6759208332" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btn.appstore">App Storeで入手</a>
       </div>
     </div>
 
@@ -677,15 +735,15 @@ h2.section-title {
     <div class="target-card reveal">
       <h2>
         <small>FOR KIDS &amp; PARENTS</small>
-        こんなお子さま・<wbr />おうちの方にぴったり
+        <span data-i18n-html="target.title">こんなお子さま・<wbr />おうちの方にぴったり</span>
       </h2>
       <ul class="target-grid">
-        <li><span class="check">✓</span><span>はじめてのゲームを楽しませたい</span></li>
-        <li><span class="check">✓</span><span>形合わせ・数かぞえが好きなお子さま</span></li>
-        <li><span class="check">✓</span><span>かわいいキャラクターに夢中なお子さま</span></li>
-        <li><span class="check">✓</span><span>移動中・待ち時間にちょこっと遊びたい</span></li>
-        <li><span class="check">✓</span><span>ひらがなが読めなくてもOK</span></li>
-        <li><span class="check">✓</span><span>広告なし・課金を管理したい保護者の方</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item1">はじめてのゲームを楽しませたい</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item2">形合わせ・数かぞえが好きなお子さま</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item3">かわいいキャラクターに夢中なお子さま</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item4">移動中・待ち時間にちょこっと遊びたい</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item5">ひらがなが読めなくてもOK</span></li>
+        <li><span class="check">✓</span><span data-i18n="target.item6">広告なし・課金を管理したい保護者の方</span></li>
       </ul>
     </div>
   </div>
@@ -696,8 +754,8 @@ h2.section-title {
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Feature</span>
-      <h2 class="section-title">Mogs Landの<span class="accent-mark">3つの特長</span></h2>
-      <p class="section-lead">
+      <h2 class="section-title" data-i18n-html="features.title">Mogs Landの<span class="accent-mark">3つの特長</span></h2>
+      <p class="section-lead" data-i18n="features.lead">
         小さなお子さまでも迷わず、保護者の方も安心して見守れる ── そんな体験を大切にしています。
       </p>
     </div>
@@ -706,22 +764,22 @@ h2.section-title {
       <article class="feat reveal">
         <span class="feat-num">FEATURE 01</span>
         <div class="feat-img"><video src="Game3_Preview_Anim.mp4" autoplay loop muted playsinline></video></div>
-        <h3>タップ・ドラッグだけ。<br />直感で気持ちいい操作。</h3>
-        <p>どのゲームもシンプルな操作で遊べます。説明書いらずで、お子さまが自分でルールを発見できます。最初の1回をいっしょに遊んであげるだけで、すぐひとりで楽しめます。</p>
+        <h3 data-i18n-html="feat1.title">タップ・ドラッグだけ。<br />直感で気持ちいい操作。</h3>
+        <p data-i18n="feat1.desc">どのゲームもシンプルな操作で遊べます。説明書いらずで、お子さまが自分でルールを発見できます。最初の1回をいっしょに遊んであげるだけで、すぐひとりで楽しめます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 02</span>
         <div class="feat-img"><video src="Game2_Preview_Anim.mp4" autoplay loop muted playsinline></video></div>
-        <h3>たくさんのゲームで、<br />飽きずに続けられる。</h3>
-        <p>バリエーション豊富なゲームを収録。気分に合わせて好きなゲームを選んで遊べます。</p>
+        <h3 data-i18n-html="feat2.title">たくさんのゲームで、<br />飽きずに続けられる。</h3>
+        <p data-i18n="feat2.desc">バリエーション豊富なゲームを収録。気分に合わせて好きなゲームを選んで遊べます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 03</span>
         <div class="feat-img"><video src="Veggie%20Harvest_Anim.mp4" autoplay loop muted playsinline></video></div>
-        <h3>SAMPLEは無料。<br />まずは試してみて。</h3>
-        <p>すべてのゲームにSAMPLEモードが無料で用意されています。サブスクリプションに登録すると全レベルが開放。お子さまが気に入ってから検討できます。</p>
+        <h3 data-i18n-html="feat3.title">SAMPLEは無料。<br />まずは試してみて。</h3>
+        <p data-i18n="feat3.desc">すべてのゲームにSAMPLEモードが無料で用意されています。サブスクリプションに登録すると全レベルが開放。お子さまが気に入ってから検討できます。</p>
       </article>
     </div>
   </div>
@@ -732,8 +790,8 @@ h2.section-title {
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Games</span>
-      <h2 class="section-title"><span class="accent-mark">たくさんのミニゲーム</span>を収録</h2>
-      <p class="section-lead">
+      <h2 class="section-title" data-i18n-html="games.title"><span class="accent-mark">たくさんのミニゲーム</span>を収録</h2>
+      <p class="section-lead" data-i18n="games.lead">
         それぞれ異なる遊び心地で、毎日あきずに楽しめます。SAMPLEは全ゲーム無料で体験できます。
       </p>
     </div>
@@ -741,32 +799,32 @@ h2.section-title {
       <div class="game-card reveal">
         <div class="game-icon">🔷</div>
         <h4>Shape Fit</h4>
-        <p>形をぴったり合わせてはめていく形合わせゲーム。空間認識力が育ちます。</p>
-        <span class="game-badge">SAMPLE 無料</span>
+        <p data-i18n="game1.desc">形をぴったり合わせてはめていく形合わせゲーム。空間認識力が育ちます。</p>
+        <span class="game-badge" data-i18n="game.badge">SAMPLE 無料</span>
       </div>
       <div class="game-card reveal">
         <div class="game-icon">🧩</div>
         <h4>Puzzle</h4>
-        <p>バラバラになった動物のパズルを完成させよう。60種類以上の動物が登場！</p>
-        <span class="game-badge">SAMPLE 無料</span>
+        <p data-i18n="game2.desc">バラバラになった動物のパズルを完成させよう。60種類以上の動物が登場！</p>
+        <span class="game-badge" data-i18n="game.badge">SAMPLE 無料</span>
       </div>
       <div class="game-card reveal">
         <div class="game-icon">👀</div>
         <h4>Spot the Same!</h4>
-        <p>たくさんの絵の中から同じものを見つけよう。観察力と集中力を育みます。</p>
-        <span class="game-badge">SAMPLE 無料</span>
+        <p data-i18n="game3.desc">たくさんの絵の中から同じものを見つけよう。観察力と集中力を育みます。</p>
+        <span class="game-badge" data-i18n="game.badge">SAMPLE 無料</span>
       </div>
       <div class="game-card reveal">
         <div class="game-icon">🫧</div>
         <h4>Bubble Pop</h4>
-        <p>浮かんでくる泡をポンポンはじこう。リズムよく遊べる爽快ゲーム。</p>
-        <span class="game-badge">SAMPLE 無料</span>
+        <p data-i18n="game4.desc">浮かんでくる泡をポンポンはじこう。リズムよく遊べる爽快ゲーム。</p>
+        <span class="game-badge" data-i18n="game.badge">SAMPLE 無料</span>
       </div>
       <div class="game-card reveal">
         <div class="game-icon">🥦</div>
         <h4>Veggie Harvest</h4>
-        <p>指定された野菜をトラックに積もう。数を数える力が自然と身につきます。</p>
-        <span class="game-badge">SAMPLE 無料</span>
+        <p data-i18n="game5.desc">指定された野菜をトラックに積もう。数を数える力が自然と身につきます。</p>
+        <span class="game-badge" data-i18n="game.badge">SAMPLE 無料</span>
       </div>
     </div>
   </div>
@@ -777,30 +835,30 @@ h2.section-title {
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">For Parents</span>
-      <h2 class="section-title">保護者の方への<span class="accent-mark">安心ポイント</span></h2>
-      <p class="section-lead">お子さまにスマホやタブレットを渡すときの「これって大丈夫？」に、ひとつずつお答えします。</p>
+      <h2 class="section-title" data-i18n-html="trust.title">保護者の方への<span class="accent-mark">安心ポイント</span></h2>
+      <p class="section-lead" data-i18n="trust.lead">お子さまにスマホやタブレットを渡すときの「これって大丈夫？」に、ひとつずつお答えします。</p>
     </div>
 
     <div class="trust-grid">
       <div class="trust-item t1 reveal">
         <div class="trust-icon">🚫</div>
-        <h4>広告は表示しません</h4>
-        <p>遊びの途中で外部サイトに飛ぶ広告は一切ありません。お子さまが意図せず別ページへ移動する心配がありません。</p>
+        <h4 data-i18n="trust1.title">広告は表示しません</h4>
+        <p data-i18n="trust1.desc">遊びの途中で外部サイトに飛ぶ広告は一切ありません。お子さまが意図せず別ページへ移動する心配がありません。</p>
       </div>
       <div class="trust-item t2 reveal">
         <div class="trust-icon">📱</div>
-        <h4>iPhone・iPad 両対応</h4>
-        <p>お手持ちのiPhoneでもiPadでも最適なレイアウトで遊べます。家族で共有しやすい設計です。</p>
+        <h4 data-i18n="trust2.title">iPhone・iPad 両対応</h4>
+        <p data-i18n="trust2.desc">お手持ちのiPhoneでもiPadでも最適なレイアウトで遊べます。家族で共有しやすい設計です。</p>
       </div>
       <div class="trust-item t3 reveal">
         <div class="trust-icon">🔒</div>
-        <h4>課金は保護者の管理下で</h4>
-        <p>サブスクリプション登録にはペアレンタルゲート（計算問題）を設置。お子さまの誤購入を防ぎます。</p>
+        <h4 data-i18n="trust3.title">課金は保護者の管理下で</h4>
+        <p data-i18n="trust3.desc">サブスクリプション登録にはペアレンタルゲート（計算問題）を設置。お子さまの誤購入を防ぎます。</p>
       </div>
       <div class="trust-item t4 reveal">
         <div class="trust-icon">🧠</div>
-        <h4>「あそびと学び」のバランス</h4>
-        <p>形・数・観察力・集中力に働きかける遊びを、勉強くさくならずに体験できる設計です。</p>
+        <h4 data-i18n="trust4.title">「あそびと学び」のバランス</h4>
+        <p data-i18n="trust4.desc">形・数・観察力・集中力に働きかける遊びを、勉強くさくならずに体験できる設計です。</p>
       </div>
     </div>
   </div>
@@ -812,21 +870,21 @@ h2.section-title {
     <div class="sub-card reveal">
       <div>
         <span class="eyebrow">Subscription</span>
-        <h2>サブスクで、<br />すべてのゲームを解放。</h2>
-        <p>SAMPLEモードは無料でいつでも遊べます。サブスクリプションに登録すると、全ゲームのStar_1・Star_2レベルが開放され、さらに難しく、さらに楽しく遊べます。</p>
+        <h2 data-i18n-html="sub.title">サブスクで、<br />すべてのゲームを解放。</h2>
+        <p data-i18n="sub.desc">SAMPLEモードは無料でいつでも遊べます。サブスクリプションに登録すると、全ゲームのStar_1・Star_2レベルが開放され、さらに難しく、さらに楽しく遊べます。</p>
         <div class="sub-plans">
           <div class="sub-plan">
             <div class="sub-plan-icon">🆓</div>
             <div>
-              <h4>SAMPLE（無料）</h4>
-              <p>全5ゲームのSAMPLEモードが無料。まずは気軽に体験できます。</p>
+              <h4 data-i18n="sub.plan1.title">SAMPLE（無料）</h4>
+              <p data-i18n="sub.plan1.desc">全5ゲームのSAMPLEモードが無料。まずは気軽に体験できます。</p>
             </div>
           </div>
           <div class="sub-plan">
             <div class="sub-plan-icon">⭐</div>
             <div>
-              <h4>サブスクリプション</h4>
-              <p>Star_1・Star_2レベルがすべて解放。より高度な問題でお子さまの力を伸ばせます。</p>
+              <h4 data-i18n="sub.plan2.title">サブスクリプション</h4>
+              <p data-i18n="sub.plan2.desc">Star_1・Star_2レベルがすべて解放。より高度な問題でお子さまの力を伸ばせます。</p>
             </div>
           </div>
         </div>
@@ -843,44 +901,44 @@ h2.section-title {
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">FAQ</span>
-      <h2 class="section-title">よくあるご質問</h2>
-      <p class="section-lead">保護者の方からよくいただくご質問にお答えします。</p>
+      <h2 class="section-title" data-i18n="faq.title">よくあるご質問</h2>
+      <p class="section-lead" data-i18n="faq.lead">保護者の方からよくいただくご質問にお答えします。</p>
     </div>
 
     <div class="faq-list">
       <details class="faq-item reveal" open>
-        <summary><span class="faq-q-mark">Q</span><span>2歳でもひとりで遊べますか？</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q1">2歳でもひとりで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a1">
           基本操作はタップ・ドラッグのみなので、ひらがなが読めなくても遊べる設計です。最初の数回だけいっしょに触っていただけると、すぐ自分で楽しめるようになります。SAMPLEモードは難易度が低めに設定されています。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>無料でどこまで遊べますか？</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q2">無料でどこまで遊べますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a2">
           全5ゲームのSAMPLEモードが無料でお楽しみいただけます。サブスクリプションに登録するとStar_1・Star_2レベルが解放され、より難易度の高い問題に挑戦できます。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>子どもが勝手に課金してしまわないか心配です。</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q3">子どもが勝手に課金してしまわないか心配です。</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a3">
           サブスクリプション登録時にはペアレンタルゲート（大人向けの計算問題）を設置しています。また、AppleのFace ID / Touch ID / パスコードによる保護も働きます。iOSのスクリーンタイム設定でアプリ内課金をブロックすることも可能です。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>広告は表示されますか？</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q4">広告は表示されますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a4">
           外部広告は一切表示しません。遊びを邪魔する広告がないため、お子さまが安心して集中して遊べます。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>iPhone・iPadどちらでも使えますか？</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q5">iPhone・iPadどちらでも使えますか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a5">
           はい、iPhone・iPad両方に対応しています。ご家族のデバイスでお楽しみいただけます。1つのApple IDで複数デバイスに対応しています。
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary><span class="faq-q-mark">Q</span><span>不具合を見つけたらどうすればいいですか？</span><span class="faq-toggle">+</span></summary>
-        <div class="faq-body">
+        <summary><span class="faq-q-mark">Q</span><span data-i18n="faq.q6">不具合を見つけたらどうすればいいですか？</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-body" data-i18n="faq.a6">
           ページ末尾のお問い合わせからご連絡ください。ご利用端末、iOSバージョン、再現手順を添えていただけると助かります。
         </div>
       </details>
@@ -893,16 +951,31 @@ h2.section-title {
   <div class="container">
     <div class="cta-card reveal">
       <span class="eyebrow" style="background: rgba(255,255,255,.18); color:#fff;">Get the app</span>
-      <h2>モグたちと一緒に、<br />今日から遊んでみませんか？</h2>
-      <p>SAMPLEモードは無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。</p>
+      <h2 data-i18n-html="cta.title">モグたちと一緒に、<br />今日から遊んでみませんか？</h2>
+      <p data-i18n="cta.desc">SAMPLEモードは無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。</p>
       <div class="cta-actions">
-        <a href="https://apps.apple.com/jp/app/slidoo/id6759208332" target="_blank" rel="noopener" class="btn btn-primary">App Storeで入手</a>
+        <a href="https://apps.apple.com/jp/app/slidoo/id6759208332" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btn.appstore">App Storeで入手</a>
       </div>
     </div>
 
-    <p class="contact-mini">
-      ご感想・不具合報告などは <a href="mailto:support@example.com">support@example.com</a> までお寄せください。
-    </p>
+    <div class="contact-form-wrap">
+      <p class="contact-lead" data-i18n="contact.lead">ご感想・不具合報告はこちらのフォームからお気軽にお寄せください。</p>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-field">
+          <label for="contact-name" data-i18n="contact.name.label">お名前</label>
+          <input type="text" id="contact-name" name="name" required data-i18n-placeholder="contact.name.placeholder" placeholder="山田 太郎" />
+        </div>
+        <div class="form-field">
+          <label for="contact-email" data-i18n="contact.email.label">メールアドレス</label>
+          <input type="email" id="contact-email" name="email" required data-i18n-placeholder="contact.email.placeholder" placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label for="contact-message" data-i18n="contact.message.label">詳細</label>
+          <textarea id="contact-message" name="message" rows="5" required data-i18n-placeholder="contact.message.placeholder" placeholder="ご感想や不具合の内容をご記入ください"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="contact.submit">送信する</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -910,10 +983,10 @@ h2.section-title {
 <footer class="site-footer">
   <a href="#" class="brand"><span class="brand-mark">🐾</span><span>Mogs Land</span></a>
   <div class="foot-links">
-    <a href="#features">特長</a>
-    <a href="#games">ゲーム紹介</a>
-    <a href="#faq">FAQ</a>
-    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="#features" data-i18n="footer.features">特長</a>
+    <a href="#games" data-i18n="footer.games">ゲーム紹介</a>
+    <a href="#faq" data-i18n="footer.faq">FAQ</a>
+    <a href="privacy.html" data-i18n="footer.privacy">プライバシーポリシー</a>
   </div>
   <div>&copy; 2026 Mogs Land</div>
 </footer>
@@ -928,6 +1001,223 @@ h2.section-title {
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+<script>
+  const translations = {
+    en: {
+      'nav.target': 'For Kids', 'nav.features': 'Features', 'nav.games': 'Games',
+      'nav.trust': 'Safety', 'nav.faq': 'FAQ', 'nav.getapp': 'Get App',
+      'hero.badge.age': '🧒 Best for ages 2–6', 'hero.badge.edu': '🎮 5 Mini Games',
+      'hero.badge.safe': '🛡️ No Ads · Safe Design',
+      'hero.h1': 'Play with Mog,<br /><em>and learn!</em>',
+      'hero.lead': 'Mogs Land is a mini-game collection app for kids aged 2–6, featuring the adorable mole character Mog. Kids can naturally build shape recognition, counting, and observation skills through 5 fun mini-games.',
+      'btn.appstore': 'Get it on the App Store',
+      'target.title': 'A perfect fit for these kids<wbr /> and families',
+      'target.item1': 'Want your child to enjoy their first game',
+      'target.item2': 'Kids who love shape-matching and counting',
+      'target.item3': 'Kids who adore cute characters',
+      'target.item4': 'Perfect for quick play during commutes or waiting time',
+      'target.item5': 'No reading required — hiragana not needed',
+      'target.item6': 'For parents who want ad-free, controlled spending',
+      'features.title': '3 great features of <span class="accent-mark">Mogs Land</span>',
+      'features.lead': 'Designed so little ones never feel lost, and parents can watch on with peace of mind.',
+      'feat1.title': 'Just tap and drag.<br />Intuitive, satisfying controls.',
+      'feat1.desc': 'Every game uses simple controls, no instructions needed — kids discover the rules on their own. Play along just once, and they’ll soon be enjoying it by themselves.',
+      'feat2.title': 'So many games,<br />they’ll never get bored.',
+      'feat2.desc': 'Packed with a wide variety of games. Kids can pick whichever game matches their mood.',
+      'feat3.title': 'Free SAMPLE mode.<br />Try it out first.',
+      'feat3.desc': 'Every game includes a free SAMPLE mode. Subscribe to unlock all levels — decide after your child falls in love with it.',
+      'games.title': '<span class="accent-mark">Lots of mini-games</span> included',
+      'games.lead': 'Each with its own unique feel, so there’s something new to enjoy every day. Every game’s SAMPLE mode is free to try.',
+      'game1.desc': 'Fit the shapes perfectly into place in this shape-matching game. Builds spatial awareness.',
+      'game2.desc': 'Complete jigsaw puzzles of scattered animals. Over 60 different animals to discover!',
+      'game3.desc': 'Find the matching pictures among many others. Builds observation and focus.',
+      'game4.desc': 'Pop the bubbles as they float up. A rhythmic, refreshing game.',
+      'game5.desc': 'Load the requested vegetables onto the truck. Naturally builds counting skills.',
+      'game.badge': 'Free Sample',
+      'trust.title': 'Peace of mind <span class="accent-mark">points for parents</span>',
+      'trust.lead': 'We answer, one by one, the “is this really okay?” questions that come up when handing a phone or tablet to your child.',
+      'trust1.title': 'No ads, ever', 'trust1.desc': 'There are absolutely no ads that redirect to external sites during play. No worries about your child accidentally navigating away.',
+      'trust2.title': 'Works great on iPhone & iPad', 'trust2.desc': 'Enjoy an optimized layout on whichever device you have. Easy to share across the family.',
+      'trust3.title': 'Purchases stay under parental control', 'trust3.desc': 'A parental gate (a simple math problem) is required before subscribing, preventing accidental purchases by kids.',
+      'trust4.title': 'A balance of play and learning', 'trust4.desc': 'Designed to nurture shapes, numbers, observation, and focus — without ever feeling like “studying.”',
+      'sub.title': 'Subscribe to unlock<br />every game.',
+      'sub.desc': 'SAMPLE mode is always free to play. Subscribing unlocks the Star 1 and Star 2 levels across every game, for even more challenging, even more fun play.',
+      'sub.plan1.title': 'SAMPLE (Free)', 'sub.plan1.desc': 'SAMPLE mode is free across all 5 games. A great way to try it out risk-free.',
+      'sub.plan2.title': 'Subscription', 'sub.plan2.desc': 'Unlocks all Star 1 and Star 2 levels, with more advanced challenges to grow your child’s skills.',
+      'faq.title': 'Frequently Asked Questions', 'faq.lead': 'Answers to the questions we hear most often from parents.',
+      'faq.q1': 'Can a 2-year-old play by themselves?',
+      'faq.a1': 'The controls are just tap and drag, so kids don’t need to read hiragana to play. After playing together a few times, they’ll soon enjoy it on their own. SAMPLE mode is set to an easier difficulty.',
+      'faq.q2': 'How much can I play for free?',
+      'faq.a2': 'The SAMPLE mode for all 5 games is free to enjoy. Subscribing unlocks the Star 1 and Star 2 levels for more challenging play.',
+      'faq.q3': 'I’m worried my child might make purchases by accident.',
+      'faq.a3': 'A parental gate (an adult-level math problem) is required before subscribing. Apple’s Face ID / Touch ID / passcode protections also apply. You can also block in-app purchases entirely using iOS Screen Time settings.',
+      'faq.q4': 'Are there any ads?', 'faq.a4': 'No external ads are shown at all. With nothing to interrupt play, kids can enjoy the games with full focus.',
+      'faq.q5': 'Does it work on both iPhone and iPad?',
+      'faq.a5': 'Yes, it supports both iPhone and iPad. Enjoy it on any of your family’s devices — one Apple ID works across multiple devices.',
+      'faq.q6': 'What should I do if I find a bug?',
+      'faq.a6': 'Please get in touch using the contact form at the bottom of this page. It helps if you can include your device, iOS version, and steps to reproduce the issue.',
+      'cta.title': 'Come play with<br />Mog and friends today',
+      'cta.desc': 'SAMPLE mode is free to download. Bring your child’s “I did it!” moment home today.',
+      'contact.lead': 'Have feedback or found a bug? Send us a message below.',
+      'contact.name.label': 'Name', 'contact.name.placeholder': 'Your name',
+      'contact.email.label': 'Email', 'contact.email.placeholder': 'you@example.com',
+      'contact.message.label': 'Details', 'contact.message.placeholder': 'Please describe your feedback or the issue you found',
+      'contact.submit': 'Send',
+      'footer.features': 'Features', 'footer.games': 'Games', 'footer.faq': 'FAQ', 'footer.privacy': 'Privacy Policy',
+    },
+    ja: {
+      'nav.target': 'こんな子に', 'nav.features': '特長', 'nav.games': 'ゲーム紹介',
+      'nav.trust': '安心ポイント', 'nav.faq': 'FAQ', 'nav.getapp': '入手する',
+      'hero.badge.age': '🧒 2〜6歳におすすめ', 'hero.badge.edu': '🎮 5つのミニゲーム',
+      'hero.badge.safe': '🛡️ 広告なし・安心設計',
+      'hero.h1': 'モグと一緒に、あそんで、<br /><em>まなぼう！</em>',
+      'hero.lead': 'Mogs Landは、かわいいモグラキャラクターのモグたちと一緒に5つのミニゲームで遊べる、2〜6歳のお子さまのためのゲームアプリです。形・数・観察力を楽しみながら自然に育てます。',
+      'btn.appstore': 'App Storeで入手',
+      'target.title': 'こんなお子さま・<wbr />おうちの方にぴったり',
+      'target.item1': 'はじめてのゲームを楽しませたい',
+      'target.item2': '形合わせ・数かぞえが好きなお子さま',
+      'target.item3': 'かわいいキャラクターに夢中なお子さま',
+      'target.item4': '移動中・待ち時間にちょこっと遊びたい',
+      'target.item5': 'ひらがなが読めなくてもOK',
+      'target.item6': '広告なし・課金を管理したい保護者の方',
+      'features.title': 'Mogs Landの<span class="accent-mark">3つの特長</span>',
+      'features.lead': '小さなお子さまでも迷わず、保護者の方も安心して見守れる ── そんな体験を大切にしています。',
+      'feat1.title': 'タップ・ドラッグだけ。<br />直感で気持ちいい操作。',
+      'feat1.desc': 'どのゲームもシンプルな操作で遊べます。説明書いらずで、お子さまが自分でルールを発見できます。最初の1回をいっしょに遊んであげるだけで、すぐひとりで楽しめます。',
+      'feat2.title': 'たくさんのゲームで、<br />飽きずに続けられる。',
+      'feat2.desc': 'バリエーション豊富なゲームを収録。気分に合わせて好きなゲームを選んで遊べます。',
+      'feat3.title': 'SAMPLEは無料。<br />まずは試してみて。',
+      'feat3.desc': 'すべてのゲームにSAMPLEモードが無料で用意されています。サブスクリプションに登録すると全レベルが開放。お子さまが気に入ってから検討できます。',
+      'games.title': '<span class="accent-mark">たくさんのミニゲーム</span>を収録',
+      'games.lead': 'それぞれ異なる遊び心地で、毎日あきずに楽しめます。SAMPLEは全ゲーム無料で体験できます。',
+      'game1.desc': '形をぴったり合わせてはめていく形合わせゲーム。空間認識力が育ちます。',
+      'game2.desc': 'バラバラになった動物のパズルを完成させよう。60種類以上の動物が登場！',
+      'game3.desc': 'たくさんの絵の中から同じものを見つけよう。観察力と集中力を育みます。',
+      'game4.desc': '浮かんでくる泡をポンポンはじこう。リズムよく遊べる爽快ゲーム。',
+      'game5.desc': '指定された野菜をトラックに積もう。数を数える力が自然と身につきます。',
+      'game.badge': 'SAMPLE 無料',
+      'trust.title': '保護者の方への<span class="accent-mark">安心ポイント</span>',
+      'trust.lead': 'お子さまにスマホやタブレットを渡すときの「これって大丈夫？」に、ひとつずつお答えします。',
+      'trust1.title': '広告は表示しません', 'trust1.desc': '遊びの途中で外部サイトに飛ぶ広告は一切ありません。お子さまが意図せず別ページへ移動する心配がありません。',
+      'trust2.title': 'iPhone・iPad 両対応', 'trust2.desc': 'お手持ちのiPhoneでもiPadでも最適なレイアウトで遊べます。家族で共有しやすい設計です。',
+      'trust3.title': '課金は保護者の管理下で', 'trust3.desc': 'サブスクリプション登録にはペアレンタルゲート（計算問題）を設置。お子さまの誤購入を防ぎます。',
+      'trust4.title': '「あそびと学び」のバランス', 'trust4.desc': '形・数・観察力・集中力に働きかける遊びを、勉強くさくならずに体験できる設計です。',
+      'sub.title': 'サブスクで、<br />すべてのゲームを解放。',
+      'sub.desc': 'SAMPLEモードは無料でいつでも遊べます。サブスクリプションに登録すると、全ゲームのStar_1・Star_2レベルが開放され、さらに難しく、さらに楽しく遊べます。',
+      'sub.plan1.title': 'SAMPLE（無料）', 'sub.plan1.desc': '全5ゲームのSAMPLEモードが無料。まずは気軽に体験できます。',
+      'sub.plan2.title': 'サブスクリプション', 'sub.plan2.desc': 'Star_1・Star_2レベルがすべて解放。より高度な問題でお子さまの力を伸ばせます。',
+      'faq.title': 'よくあるご質問', 'faq.lead': '保護者の方からよくいただくご質問にお答えします。',
+      'faq.q1': '2歳でもひとりで遊べますか？',
+      'faq.a1': '基本操作はタップ・ドラッグのみなので、ひらがなが読めなくても遊べる設計です。最初の数回だけいっしょに触っていただけると、すぐ自分で楽しめるようになります。SAMPLEモードは難易度が低めに設定されています。',
+      'faq.q2': '無料でどこまで遊べますか？',
+      'faq.a2': '全5ゲームのSAMPLEモードが無料でお楽しみいただけます。サブスクリプションに登録するとStar_1・Star_2レベルが解放され、より難易度の高い問題に挑戦できます。',
+      'faq.q3': '子どもが勝手に課金してしまわないか心配です。',
+      'faq.a3': 'サブスクリプション登録時にはペアレンタルゲート（大人向けの計算問題）を設置しています。また、AppleのFace ID / Touch ID / パスコードによる保護も働きます。iOSのスクリーンタイム設定でアプリ内課金をブロックすることも可能です。',
+      'faq.q4': '広告は表示されますか？', 'faq.a4': '外部広告は一切表示しません。遊びを邪魔する広告がないため、お子さまが安心して集中して遊べます。',
+      'faq.q5': 'iPhone・iPadどちらでも使えますか？',
+      'faq.a5': 'はい、iPhone・iPad両方に対応しています。ご家族のデバイスでお楽しみいただけます。1つのApple IDで複数デバイスに対応しています。',
+      'faq.q6': '不具合を見つけたらどうすればいいですか？',
+      'faq.a6': 'ページ末尾のお問い合わせからご連絡ください。ご利用端末、iOSバージョン、再現手順を添えていただけると助かります。',
+      'cta.title': 'モグたちと一緒に、<br />今日から遊んでみませんか？',
+      'cta.desc': 'SAMPLEモードは無料でダウンロードできます。お子さまの「できた！」の瞬間を、ぜひおうちで。',
+      'contact.lead': 'ご感想・不具合報告はこちらのフォームからお気軽にお寄せください。',
+      'contact.name.label': 'お名前', 'contact.name.placeholder': '山田 太郎',
+      'contact.email.label': 'メールアドレス', 'contact.email.placeholder': 'you@example.com',
+      'contact.message.label': '詳細', 'contact.message.placeholder': 'ご感想や不具合の内容をご記入ください',
+      'contact.submit': '送信する',
+      'footer.features': '特長', 'footer.games': 'ゲーム紹介', 'footer.faq': 'FAQ', 'footer.privacy': 'プライバシーポリシー',
+    },
+    zh: {
+      'nav.target': '适合对象', 'nav.features': '特色', 'nav.games': '游戏介绍',
+      'nav.trust': '安心保障', 'nav.faq': '常见问题', 'nav.getapp': '立即获取',
+      'hero.badge.age': '🧒 推荐2-6岁', 'hero.badge.edu': '🎮 5款迷你游戏',
+      'hero.badge.safe': '🛡️ 无广告·安心设计',
+      'hero.h1': '和摩格一起玩耍，<br /><em>快乐学习！</em>',
+      'hero.lead': 'Mogs Land是一款专为2-6岁儿童设计的游戏应用，可以和可爱的鼹鼠角色摩格一起畅玩5款迷你游戏。在游戏中自然而然地培养形状认知、数字和观察能力。',
+      'btn.appstore': '前往App Store下载',
+      'target.title': '适合这样的孩子<wbr />和家庭',
+      'target.item1': '想让孩子享受第一次游戏体验',
+      'target.item2': '喜欢形状配对、数数的孩子',
+      'target.item3': '喜爱可爱角色的孩子',
+      'target.item4': '想在通勤、等待时间轻松玩一下',
+      'target.item5': '不会读平假名也没关系',
+      'target.item6': '希望管理消费、无广告的家长',
+      'features.title': 'Mogs Land的<span class="accent-mark">三大特色</span>',
+      'features.lead': '让小朋友不会感到困惑，也让家长可以安心陪伴——我们珍视这样的体验。',
+      'feat1.title': '只需点击拖拽。<br />直观又舒适的操作。',
+      'feat1.desc': '每款游戏都采用简单的操作方式，无需说明书，孩子可以自己发现规则。只需陪玩一次，很快就能独自享受游戏乐趣。',
+      'feat2.title': '丰富的游戏内容，<br />让孩子百玩不厌。',
+      'feat2.desc': '收录了各种各样的游戏。可以根据心情挑选喜欢的游戏来玩。',
+      'feat3.title': 'SAMPLE模式免费。<br />先试玩看看。',
+      'feat3.desc': '所有游戏都提供免费的SAMPLE模式。订阅后即可解锁全部关卡，等孩子喜欢上之后再考虑订阅也不迟。',
+      'games.title': '收录<span class="accent-mark">众多迷你游戏</span>',
+      'games.lead': '每款游戏都有独特的玩法，每天都能玩得不亦乐乎。所有游戏的SAMPLE模式均可免费体验。',
+      'game1.desc': '将形状精准地嵌入对应位置的形状配对游戏，培养空间认知能力。',
+      'game2.desc': '拼出被打乱的动物拼图。收录60多种动物！',
+      'game3.desc': '从众多图片中找出相同的图案，培养观察力和专注力。',
+      'game4.desc': '戳破漂浮而来的泡泡。节奏感十足的畅快游戏。',
+      'game5.desc': '把指定的蔬菜装上卡车。自然而然地培养数数能力。',
+      'game.badge': 'SAMPLE 免费',
+      'trust.title': '写给家长的<span class="accent-mark">安心保障</span>',
+      'trust.lead': '关于把手机或平板交给孩子时的各种担忧，我们逐一为您解答。',
+      'trust1.title': '绝不展示广告', 'trust1.desc': '游戏过程中绝不会出现跳转到外部网站的广告，无需担心孩子无意中跳转到其他页面。',
+      'trust2.title': 'iPhone、iPad均支持', 'trust2.desc': '无论使用iPhone还是iPad，都能以最佳布局畅玩。方便全家共享使用。',
+      'trust3.title': '消费由家长掌控', 'trust3.desc': '订阅前设有家长验证关卡（计算题），防止孩子误购买。',
+      'trust4.title': '“玩乐与学习”的平衡', 'trust4.desc': '培养形状、数字、观察力和专注力的游戏内容，让孩子在不知不觉中学习，不会有学习的压迫感。',
+      'sub.title': '订阅后，<br />解锁全部游戏。',
+      'sub.desc': 'SAMPLE模式随时可免费畅玩。订阅后可解锁所有游戏的Star_1、Star_2关卡，畅玩更具挑战性、更有趣的内容。',
+      'sub.plan1.title': 'SAMPLE（免费）', 'sub.plan1.desc': '全部5款游戏的SAMPLE模式均可免费体验，轻松尝试。',
+      'sub.plan2.title': '订阅', 'sub.plan2.desc': '解锁全部Star_1、Star_2关卡，通过更高难度的内容提升孩子的能力。',
+      'faq.title': '常见问题', 'faq.lead': '为您解答家长们最常提出的问题。',
+      'faq.q1': '2岁的孩子可以自己玩吗？',
+      'faq.a1': '基本操作只有点击和拖拽，即使不会读平假名也能畅玩。只需陪玩几次，很快孩子就能自己享受游戏乐趣。SAMPLE模式的难度设置较低。',
+      'faq.q2': '免费可以玩到什么程度？',
+      'faq.a2': '全部5款游戏的SAMPLE模式均可免费畅玩。订阅后可解锁Star_1、Star_2关卡，挑战更高难度的内容。',
+      'faq.q3': '担心孩子会不小心产生消费。',
+      'faq.a3': '订阅时设有家长验证关卡（面向成人的计算题）。同时，Apple的Face ID / Touch ID / 密码保护也会生效。您还可以通过iOS的屏幕使用时间设置来阻止应用内购买。',
+      'faq.q4': '会显示广告吗？', 'faq.a4': '完全不会显示任何外部广告。没有干扰游戏的广告，孩子可以安心专注地畅玩。',
+      'faq.q5': 'iPhone、iPad都可以使用吗？',
+      'faq.a5': '是的，iPhone和iPad均支持。可以在家里的任意设备上畅玩，一个Apple ID可支持多台设备。',
+      'faq.q6': '发现问题该怎么办？',
+      'faq.a6': '请通过页面底部的联系表单与我们联系。如能附上您使用的设备、iOS版本及复现步骤，将会非常有帮助。',
+      'cta.title': '和摩格们一起，<br />今天就开始玩吧？',
+      'cta.desc': 'SAMPLE模式可免费下载。让孩子“我做到了！”的瞬间，就在家中发生吧。',
+      'contact.lead': '有意见反馈或发现问题？欢迎通过下方表单告诉我们。',
+      'contact.name.label': '姓名', 'contact.name.placeholder': '请输入您的姓名',
+      'contact.email.label': '邮箱地址', 'contact.email.placeholder': 'you@example.com',
+      'contact.message.label': '详细内容', 'contact.message.placeholder': '请描述您的意见反馈或遇到的问题',
+      'contact.submit': '提交',
+      'footer.features': '特色', 'footer.games': '游戏介绍', 'footer.faq': '常见问题', 'footer.privacy': '隐私政策',
+    },
+  };
+
+  function applyLanguage(lang) {
+    if (!translations[lang]) return;
+    const dict = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.js-lang-select').forEach((sel) => { sel.value = lang; });
+    localStorage.setItem('mogsland-lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('mogsland-lang') || 'en';
+  applyLanguage(savedLang);
+  document.querySelectorAll('.js-lang-select').forEach((sel) => {
+    sel.addEventListener('change', (e) => applyLanguage(e.target.value));
+  });
 </script>
 </body>
 </html>
