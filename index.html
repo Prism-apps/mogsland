@@ -274,28 +274,14 @@ h2.section-title {
 }
 .hero-img-wrap {
   position: relative;
-  width: 78%;
+  width: 101%;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-l);
   background: var(--surface);
-  transform: rotate(-3deg);
   border: 6px solid #fff;
 }
 .hero-img-wrap img, .hero-img-wrap video { width: 100%; display: block; }
-.sticker {
-  position: absolute;
-  background: var(--surface);
-  border-radius: 18px;
-  padding: 10px 14px;
-  box-shadow: var(--shadow-m);
-  font-weight: 700; font-size: 13px;
-  display: flex; align-items: center; gap: 8px;
-}
-.sticker .emoji { font-size: 20px; }
-.sticker-1 { top: 4%; right: 0; transform: rotate(6deg); color: var(--berry); }
-.sticker-2 { bottom: 8%; left: -8px; transform: rotate(-5deg); color: var(--secondary); }
-.sticker-3 { top: 44%; right: -14px; transform: rotate(3deg); color: var(--primary); }
 
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -384,7 +370,7 @@ h2.section-title {
   margin: 14px 0 18px;
   border-radius: var(--radius-m);
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   background: var(--bg-soft);
   display: grid; place-items: center;
 }
@@ -515,7 +501,7 @@ h2.section-title {
   overflow: hidden;
   background: rgba(255,255,255,.06);
   border: 6px solid rgba(255,255,255,.1);
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   display: grid; place-items: center;
   font-size: 80px;
 }
@@ -687,9 +673,6 @@ h2.section-title {
       <div class="hero-img-wrap">
         <video src="Anim01.mp4" autoplay loop muted playsinline aria-label="Mogs Land アプリ画面"></video>
       </div>
-      <div class="sticker sticker-1"><span class="emoji">🧩</span>パズル</div>
-      <div class="sticker sticker-2"><span class="emoji">🥕</span>やさい</div>
-      <div class="sticker sticker-3"><span class="emoji">⭐</span>達成感</div>
     </div>
   </div>
 </section>
