@@ -282,7 +282,7 @@ h2.section-title {
   transform: rotate(-3deg);
   border: 6px solid #fff;
 }
-.hero-img-wrap img { width: 100%; display: block; }
+.hero-img-wrap img, .hero-img-wrap video { width: 100%; display: block; }
 .sticker {
   position: absolute;
   background: var(--surface);
@@ -388,7 +388,7 @@ h2.section-title {
   background: var(--bg-soft);
   display: grid; place-items: center;
 }
-.feat-img img { width: 100%; height: 100%; object-fit: cover; }
+.feat-img img, .feat-img video { width: 100%; height: 100%; object-fit: cover; }
 .feat h3 { font-size: 20px; font-weight: 900; margin: 0 0 8px; }
 .feat p { margin: 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.85; }
 .feat:nth-child(1) { background: linear-gradient(180deg, #FFF 0%, #FFF6EC 100%); }
@@ -473,53 +473,6 @@ h2.section-title {
 @media (max-width: 880px) { .games-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 480px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
 
-/* HOW TO */
-.how { padding-top: 96px; }
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  position: relative;
-}
-.steps::before {
-  content: "";
-  position: absolute;
-  top: 90px; left: 8%; right: 8%;
-  height: 3px;
-  background: repeating-linear-gradient(90deg, var(--primary) 0 8px, transparent 8px 16px);
-  z-index: 0;
-}
-.step {
-  background: var(--surface);
-  border-radius: var(--radius-m);
-  padding: 24px 22px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-s);
-  position: relative; z-index: 1;
-}
-.step-num {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  display: grid; place-items: center;
-  font-family: var(--font-en);
-  font-weight: 700; font-size: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 0 var(--primary-d);
-}
-.step:nth-child(2) .step-num { background: var(--secondary); box-shadow: 0 4px 0 #1f9c91; }
-.step:nth-child(3) .step-num { background: var(--accent); color: #5C4308; box-shadow: 0 4px 0 #D9A431; }
-.step:nth-child(4) .step-num { background: var(--berry); box-shadow: 0 4px 0 #962e6c; }
-.step h4 { margin: 0 0 6px; font-size: 16px; font-weight: 900; }
-.step p { margin: 0; color: var(--ink-soft); font-size: 13.5px; line-height: 1.8; }
-
-@media (max-width: 880px) {
-  .steps { grid-template-columns: repeat(2, 1fr); }
-  .steps::before { display: none; }
-}
-@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-
 /* SUBSCRIPTION */
 .sub-section { padding: 96px 24px; }
 .sub-card {
@@ -566,6 +519,7 @@ h2.section-title {
   display: grid; place-items: center;
   font-size: 80px;
 }
+.sub-visual video { width: 100%; height: 100%; object-fit: cover; }
 
 @media (max-width: 880px) {
   .sub-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 28px; }
@@ -692,7 +646,6 @@ h2.section-title {
       <a href="#features">特長</a>
       <a href="#games">ゲーム紹介</a>
       <a href="#trust">安心ポイント</a>
-      <a href="#how">遊び方</a>
       <a href="#faq">FAQ</a>
       <a href="#contact" class="nav-cta">App Store</a>
     </div>
@@ -732,7 +685,7 @@ h2.section-title {
     <div class="hero-visual" aria-hidden="true">
       <div class="hero-blob"></div>
       <div class="hero-img-wrap">
-        <img src="LP_Top.png" alt="Mogs Land アプリ画面" />
+        <video src="Anim01.mp4" autoplay loop muted playsinline aria-label="Mogs Land アプリ画面"></video>
       </div>
       <div class="sticker sticker-1"><span class="emoji">🧩</span>パズル</div>
       <div class="sticker sticker-2"><span class="emoji">🥕</span>やさい</div>
@@ -775,21 +728,21 @@ h2.section-title {
     <div class="features-grid">
       <article class="feat reveal">
         <span class="feat-num">FEATURE 01</span>
-        <div class="feat-img"><img src="LP_1.png" alt="" /></div>
+        <div class="feat-img"><video src="Game3_Preview_Anim.mp4" autoplay loop muted playsinline></video></div>
         <h3>タップ・ドラッグだけ。<br />直感で気持ちいい操作。</h3>
         <p>どのゲームもシンプルな操作で遊べます。説明書いらずで、お子さまが自分でルールを発見できます。最初の1回をいっしょに遊んであげるだけで、すぐひとりで楽しめます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 02</span>
-        <div class="feat-img"><img src="LP_2.png" alt="" /></div>
+        <div class="feat-img"><video src="Game2_Preview_Anim.mp4" autoplay loop muted playsinline></video></div>
         <h3>5つのゲームで、<br />飽きずに遊び続けられる。</h3>
         <p>形合わせ・パズル・同じもの探し・バブルポップ・やさいハーベストと、バリエーション豊富な5ゲームを収録。気分に合わせて好きなゲームを選んで遊べます。</p>
       </article>
 
       <article class="feat reveal">
         <span class="feat-num">FEATURE 03</span>
-        <div class="feat-img"><img src="LP_3.png" alt="" /></div>
+        <div class="feat-img"><video src="Veggie%20Harvest_Anim.mp4" autoplay loop muted playsinline></video></div>
         <h3>SAMPLEは無料。<br />まずは試してみて。</h3>
         <p>すべてのゲームにSAMPLEモードが無料で用意されています。サブスクリプションに登録すると全レベルが開放。お子さまが気に入ってから検討できます。</p>
       </article>
@@ -876,40 +829,6 @@ h2.section-title {
   </div>
 </section>
 
-<!-- HOW TO PLAY -->
-<section class="how" id="how">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">How to play</span>
-      <h2 class="section-title"><span class="accent-mark">かんたん4ステップ</span>で遊べます</h2>
-      <p class="section-lead">むずかしい操作はありません。ゲームを選んで、タップ・ドラッグするだけ。</p>
-    </div>
-
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <h4>ゲームを選ぶ</h4>
-        <p>5つのゲームの中から好きなものをタップ。SAMPLEモードはすべて無料で遊べます。</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <h4>レベルを選ぶ</h4>
-        <p>SAMPLEから始めて、サブスクに登録するとStar_1・Star_2と難易度が上がっていきます。</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">3</div>
-        <h4>タップ・ドラッグで遊ぶ</h4>
-        <p>形を合わせる、パズルを並べる、同じものを探す ── 各ゲームのルールは直感でわかります。</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">4</div>
-        <h4>クリアして達成感！</h4>
-        <p>クリアするたびにスコアが記録されます。何度でも遊んで高スコアを目指そう！</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SUBSCRIPTION -->
 <section class="sub-section">
   <div class="container">
@@ -935,7 +854,9 @@ h2.section-title {
           </div>
         </div>
       </div>
-      <div class="sub-visual">🐾</div>
+      <div class="sub-visual">
+        <video src="Game1_Preview_Anim.mp4" autoplay loop muted playsinline></video>
+      </div>
     </div>
   </div>
 </section>
@@ -1015,7 +936,6 @@ h2.section-title {
   <div class="foot-links">
     <a href="#features">特長</a>
     <a href="#games">ゲーム紹介</a>
-    <a href="#how">遊び方</a>
     <a href="#faq">FAQ</a>
     <a href="privacy.html">プライバシーポリシー</a>
   </div>
