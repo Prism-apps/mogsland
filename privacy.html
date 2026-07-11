@@ -50,6 +50,8 @@ body{
 .lang-select:hover{ background:#f5f5f7; color:#333; }
 h1{margin-bottom:20px;}
 h2{margin-top:30px;}
+ul{margin:8px 0; padding-left:24px;}
+li{margin:4px 0;}
 </style>
 </head>
 <body>
@@ -66,26 +68,43 @@ h2{margin-top:30px;}
 <div class="container">
 <h1 data-i18n="title">Privacy Policy</h1>
 
-<p data-i18n="intro">Prism ("we") sets forth this Privacy Policy regarding the handling of users' personal information in our app "SLIDOO" (the "App").</p>
+<p data-i18n="intro">Prism ("we") sets forth this Privacy Policy regarding the handling of users' information in our app "Mogs Land: Learning Games" (the "App").</p>
 
 <h2 data-i18n="h1">1. Information We Collect</h2>
-<p data-i18n-html="p1">The App does not directly collect any personal information from users.<br>In-app purchases are processed through Apple Inc.'s system.</p>
+<p data-i18n-html="p1">The App may collect the following information through analytics and crash-reporting tools in order to maintain and improve the service:</p>
+<ul>
+  <li data-i18n="p1-li1">Device ID (an identifier used to distinguish devices)</li>
+  <li data-i18n="p1-li2">Usage Data (in-app actions such as screens viewed and features used)</li>
+  <li data-i18n="p1-li3">Crash Data (diagnostic logs collected when the App crashes or encounters an error)</li>
+</ul>
+<p data-i18n-html="p1-note">The App does not directly collect any personal information, such as a user's name or email address, that could identify an individual. In-app purchases are processed through Apple Inc.'s system.</p>
 
-<h2 data-i18n="h2">2. Purpose of Use</h2>
-<p data-i18n="p2">The App may use information within the scope necessary to provide and improve the service.</p>
+<h2 data-i18n="h2">2. Third-Party Services We Use</h2>
+<p data-i18n="p2">The App uses the following third-party services to collect the information described above:</p>
+<ul>
+  <li data-i18n="p2-li1">Firebase Analytics (Google LLC) — collects Usage Data to help us understand how the App is used</li>
+  <li data-i18n="p2-li2">Firebase Crashlytics (Google LLC) — collects Crash Data and Device ID to help us identify and fix technical issues</li>
+</ul>
+<p data-i18n-html="p2-note">These services may handle information in accordance with their own privacy policies. For details, please see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
 
-<h2 data-i18n="h3">3. Disclosure to Third Parties</h2>
-<p data-i18n="p3">We will not disclose any information we obtain to third parties, except as required by law.</p>
+<h2 data-i18n="h3">3. Purpose of Use</h2>
+<p data-i18n="p3">The information described above is used solely to operate, maintain, and improve the App, including identifying and fixing bugs and understanding how features are used. It is not used for behavioral advertising, and it is not combined with information that identifies an individual user.</p>
 
-<h2 data-i18n="h4">4. External Services</h2>
-<p data-i18n-html="p4">In-app purchases use the mechanism provided by Apple.<br>Please refer to Apple's Privacy Policy for details.</p>
+<h2 data-i18n="h4">4. Disclosure to Third Parties</h2>
+<p data-i18n="p4">Other than sharing information with the third-party services listed in Section 2, we will not disclose any information we obtain to third parties, except as required by law.</p>
 
-<h2 data-i18n="h5">5. Contact</h2>
-<p data-i18n="p5">For inquiries regarding this policy, please contact us below.</p>
+<h2 data-i18n="h5">5. Children's Privacy</h2>
+<p data-i18n="p5">The App is designed for children and is listed in Apple's Kids Category. The App does not display third-party advertising and does not collect any information that could be used to contact or identify a child outside the App. The Device ID, Usage Data, and Crash Data described above are used only for the internal purposes described in this policy and are not used to track children across apps or websites operated by other companies.</p>
+
+<h2 data-i18n="h6">6. External Services</h2>
+<p data-i18n-html="p6">In-app purchases use the mechanism provided by Apple.<br>Please refer to Apple's Privacy Policy for details.</p>
+
+<h2 data-i18n="h7">7. Contact</h2>
+<p data-i18n="p7">For inquiries regarding this policy, please contact us below.</p>
 
 <p><strong><a href="index.html#contact" data-i18n="contact-link">Contact Us</a></strong></p>
 
-<p data-i18n="date">Established: February 22, 2026</p>
+<p data-i18n="date">Established: February 22, 2026 / Last Updated: July 11, 2026</p>
 
 </div>
 
@@ -93,51 +112,84 @@ h2{margin-top:30px;}
   const translations = {
     en: {
       title: 'Privacy Policy',
-      intro: 'Prism ("we") sets forth this Privacy Policy regarding the handling of users’ personal information in our app "SLIDOO" (the "App").',
+      intro: 'Prism ("we") sets forth this Privacy Policy regarding the handling of users’ information in our app "Mogs Land: Learning Games" (the "App").',
       h1: '1. Information We Collect',
-      p1: 'The App does not directly collect any personal information from users.<br>In-app purchases are processed through Apple Inc.’s system.',
-      h2: '2. Purpose of Use',
-      p2: 'The App may use information within the scope necessary to provide and improve the service.',
-      h3: '3. Disclosure to Third Parties',
-      p3: 'We will not disclose any information we obtain to third parties, except as required by law.',
-      h4: '4. External Services',
-      p4: 'In-app purchases use the mechanism provided by Apple.<br>Please refer to Apple’s Privacy Policy for details.',
-      h5: '5. Contact',
-      p5: 'For inquiries regarding this policy, please contact us below.',
+      p1: 'The App may collect the following information through analytics and crash-reporting tools in order to maintain and improve the service:',
+      'p1-li1': 'Device ID (an identifier used to distinguish devices)',
+      'p1-li2': 'Usage Data (in-app actions such as screens viewed and features used)',
+      'p1-li3': 'Crash Data (diagnostic logs collected when the App crashes or encounters an error)',
+      'p1-note': 'The App does not directly collect any personal information, such as a user’s name or email address, that could identify an individual. In-app purchases are processed through Apple Inc.’s system.',
+      h2: '2. Third-Party Services We Use',
+      p2: 'The App uses the following third-party services to collect the information described above:',
+      'p2-li1': 'Firebase Analytics (Google LLC) — collects Usage Data to help us understand how the App is used',
+      'p2-li2': 'Firebase Crashlytics (Google LLC) — collects Crash Data and Device ID to help us identify and fix technical issues',
+      'p2-note': 'These services may handle information in accordance with their own privacy policies. For details, please see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>.',
+      h3: '3. Purpose of Use',
+      p3: 'The information described above is used solely to operate, maintain, and improve the App, including identifying and fixing bugs and understanding how features are used. It is not used for behavioral advertising, and it is not combined with information that identifies an individual user.',
+      h4: '4. Disclosure to Third Parties',
+      p4: 'Other than sharing information with the third-party services listed in Section 2, we will not disclose any information we obtain to third parties, except as required by law.',
+      h5: '5. Children’s Privacy',
+      p5: 'The App is designed for children and is listed in Apple’s Kids Category. The App does not display third-party advertising and does not collect any information that could be used to contact or identify a child outside the App. The Device ID, Usage Data, and Crash Data described above are used only for the internal purposes described in this policy and are not used to track children across apps or websites operated by other companies.',
+      h6: '6. External Services',
+      p6: 'In-app purchases use the mechanism provided by Apple.<br>Please refer to Apple’s Privacy Policy for details.',
+      h7: '7. Contact',
+      p7: 'For inquiries regarding this policy, please contact us below.',
       'contact-link': 'Contact Us',
-      date: 'Established: February 22, 2026',
+      date: 'Established: February 22, 2026 / Last Updated: July 11, 2026',
     },
     ja: {
       title: 'プライバシーポリシー',
-      intro: 'Prism（以下「当方」）は、提供するアプリ「SLIDOO」（以下「本アプリ」）におけるユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。',
+      intro: 'Prism（以下「当方」）は、提供するアプリ「Mogs Land: Learning Games」（以下「本アプリ」）におけるユーザーの情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。',
       h1: '1. 取得する情報',
-      p1: '本アプリでは、ユーザーの個人情報を直接取得することはありません。<br>アプリ内課金はApple Inc.の仕組みを通じて処理されます。',
-      h2: '2. 利用目的',
-      p2: '本アプリは、サービス提供および改善のために必要な範囲で情報を利用する場合があります。',
-      h3: '3. 第三者提供',
-      p3: '当方は、法令に基づく場合を除き、取得した情報を第三者に提供することはありません。',
-      h4: '4. 外部サービスについて',
-      p4: 'アプリ内課金はAppleの提供する仕組みを利用しています。<br>詳細はAppleのプライバシーポリシーをご確認ください。',
-      h5: '5. お問い合わせ',
-      p5: '本ポリシーに関するお問い合わせは、下記までお願いいたします。',
+      p1: '本アプリは、サービスの維持・改善のため、解析・クラッシュレポートツールを通じて以下の情報を取得することがあります。',
+      'p1-li1': 'デバイスID（端末を識別するための識別子）',
+      'p1-li2': '利用状況データ（閲覧した画面や使用した機能などのアプリ内操作履歴）',
+      'p1-li3': 'クラッシュデータ（アプリのクラッシュやエラー発生時に収集される診断ログ）',
+      'p1-note': '本アプリは、氏名やメールアドレスなど、個人を特定できる情報を直接取得することはありません。アプリ内課金はApple Inc.の仕組みを通じて処理されます。',
+      h2: '2. 第三者サービスの利用',
+      p2: '本アプリは、上記の情報を取得するために以下の第三者サービスを利用しています。',
+      'p2-li1': 'Firebase Analytics（Google LLC）— 本アプリの利用状況データを収集し、サービス改善に役立てます',
+      'p2-li2': 'Firebase Crashlytics（Google LLC）— クラッシュデータおよびデバイスIDを収集し、不具合の特定・修正に役立てます',
+      'p2-note': 'これらのサービスは、各社独自のプライバシーポリシーに基づき情報を取り扱う場合があります。詳細は<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー</a>をご確認ください。',
+      h3: '3. 利用目的',
+      p3: '上記の情報は、本アプリの維持・運営・改善（不具合の特定・修正、機能の利用状況の把握など）のためにのみ利用します。行動ターゲティング広告への利用や、個人を特定できる情報との統合は行いません。',
+      h4: '4. 第三者提供',
+      p4: '上記2.に記載する第三者サービスへの提供を除き、当方は、法令に基づく場合を除き、取得した情報を第三者に提供することはありません。',
+      h5: '5. お子さまのプライバシーについて',
+      p5: '本アプリは、お子さま向けのアプリとして設計されており、AppleのKidsカテゴリに登録されています。本アプリは第三者広告を表示せず、お子さまに連絡したり個人を特定したりするために利用できる情報を取得することはありません。上記のデバイスIDおよび利用状況・クラッシュデータは、本ポリシーに記載する内部目的にのみ利用され、他社が運営するアプリやウェブサイトを横断してお子さまを追跡する目的では利用しません。',
+      h6: '6. 外部サービスについて',
+      p6: 'アプリ内課金はAppleの提供する仕組みを利用しています。<br>詳細はAppleのプライバシーポリシーをご確認ください。',
+      h7: '7. お問い合わせ',
+      p7: '本ポリシーに関するお問い合わせは、下記までお願いいたします。',
       'contact-link': 'お問い合わせ',
-      date: '制定日：2026年2月22日',
+      date: '制定日：2026年2月22日／最終更新日：2026年7月11日',
     },
     zh: {
       title: '隐私政策',
-      intro: 'Prism（以下简称"本公司"）就其提供的应用程序"SLIDOO"（以下简称"本应用"）中用户个人信息的处理方式，制定如下隐私政策。',
+      intro: 'Prism（以下简称"本公司"）就其提供的应用程序"Mogs Land: Learning Games"（以下简称"本应用"）中用户信息的处理方式，制定如下隐私政策。',
       h1: '1. 收集的信息',
-      p1: '本应用不会直接收集用户的个人信息。<br>应用内购买通过Apple Inc.的机制进行处理。',
-      h2: '2. 使用目的',
-      p2: '本应用可能会在提供和改善服务所需的范围内使用相关信息。',
-      h3: '3. 向第三方提供',
-      p3: '除法律法规另有规定外，本公司不会将获取的信息提供给第三方。',
-      h4: '4. 关于外部服务',
-      p4: '应用内购买使用Apple提供的机制。<br>详情请查阅Apple的隐私政策。',
-      h5: '5. 联系我们',
-      p5: '关于本政策的咨询，请通过以下方式与我们联系。',
+      p1: '为维护和改进服务，本应用可能通过分析和崩溃报告工具收集以下信息：',
+      'p1-li1': '设备ID（用于识别设备的标识符）',
+      'p1-li2': '使用数据（浏览的界面、使用的功能等应用内操作记录）',
+      'p1-li3': '崩溃数据（应用发生崩溃或错误时收集的诊断日志）',
+      'p1-note': '本应用不会直接收集姓名、电子邮件地址等可识别个人身份的信息。应用内购买通过Apple Inc.的机制进行处理。',
+      h2: '2. 第三方服务的使用',
+      p2: '本应用使用以下第三方服务来收集上述信息：',
+      'p2-li1': 'Firebase Analytics（Google LLC）— 收集使用数据，帮助我们了解应用的使用情况',
+      'p2-li2': 'Firebase Crashlytics（Google LLC）— 收集崩溃数据和设备ID，帮助我们识别和修复技术问题',
+      'p2-note': '这些服务可能根据其自身的隐私政策处理信息。详情请参阅<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google隐私政策</a>。',
+      h3: '3. 使用目的',
+      p3: '上述信息仅用于运营、维护和改进本应用（包括识别和修复错误、了解功能使用情况等），不会用于行为定向广告，也不会与可识别个人身份的信息相结合。',
+      h4: '4. 向第三方提供',
+      p4: '除向上述第2条所列第三方服务提供外，除法律法规另有规定外，本公司不会将获取的信息提供给第三方。',
+      h5: '5. 关于儿童隐私',
+      p5: '本应用专为儿童设计，并已在Apple的儿童类别中上架。本应用不展示第三方广告，也不会收集任何可用于联系或识别儿童身份的信息。上述设备ID及使用数据、崩溃数据仅用于本政策所述的内部目的，不会用于跨其他公司运营的应用或网站追踪儿童。',
+      h6: '6. 关于外部服务',
+      p6: '应用内购买使用Apple提供的机制。<br>详情请查阅Apple的隐私政策。',
+      h7: '7. 联系我们',
+      p7: '关于本政策的咨询，请通过以下方式与我们联系。',
       'contact-link': '联系我们',
-      date: '制定日期：2026年2月22日',
+      date: '制定日期：2026年2月22日／最后更新日期：2026年7月11日',
     },
   };
 
